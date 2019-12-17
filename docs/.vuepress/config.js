@@ -32,7 +32,7 @@ module.exports = {
                 ]
             },
             {
-                text: 'Hundsun',
+                text: '主类别',
                 ariaLabel: 'Language Menu',
                 items: [{
                         text: '类别1',
