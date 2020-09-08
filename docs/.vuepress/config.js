@@ -29,6 +29,10 @@ module.exports = {
                         text:'Lodash',
                         link:'https://www.html.cn/doc/lodash/'
                     },
+                    {
+                        text:'TS',
+                        link:'https://jkchao.github.io/typescript-book-chinese/'
+                    }
                 ]
             },
             {
