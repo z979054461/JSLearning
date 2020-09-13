@@ -35,7 +35,7 @@ function SaferHTML(stringArr, ...rest) {
     while (++i < rest.length) {
         ret += stringArr[i] + rest[i].replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
-            .replace(/&/g, '&gt;')
+            .replace(/>/g, '&gt;')
     }
     ret += stringArr[i]
     return ret
