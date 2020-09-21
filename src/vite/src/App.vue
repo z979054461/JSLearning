@@ -6,22 +6,29 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-import { createApp } from "vue";
-// export default {
-//   name: 'App',
-//   components: {
-//     HelloWorld
-//   }
-// }
-
-const Counter = {
-    data() {
+import HelloWorld from "./components/HelloWorld.vue";
+import { createApp, ref } from "vue";
+export default {
+    name: "App",
+    components: {
+        HelloWorld,
+    },
+    setup() {
+        const counter = ref(22);
+        setInterval(() => counter.value++, 1000);
         return {
-            counter: 2
+            counter,
         };
-    }
+    },
 };
 
-createApp(Counter).mount("#counter");
+// const Counter = {
+//     data() {
+//         return {
+//             counter: 2,
+//         };
+//     },
+// };
+
+// createApp(Counter).mount("#counter");
 </script>
