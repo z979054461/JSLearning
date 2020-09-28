@@ -7,11 +7,11 @@ actionText: 主页链接
 actionLink: /00其他/
 features:
 - title: JS
-  details:  学习JS ES TS  VUE  ……前端深渊
-- title: Python
-  details: 学习Python Java  
-- title: 后续
-  details: 
+  details:  学习JS基础
+- title: VUE
+  details: 学习Vue3源码
+- title: 基本功
+  details: 数据结构、算法、编译原理
 footer: MIT Licensed | Copyright © 2019-present Tianxiang
 ---
 ::: tip
