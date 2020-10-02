@@ -1,0 +1,13 @@
+/* selector
+标签选择器
+类选择器
+ID选择器 */
+
+
+p{
+    color:red;
+}
+
+.html{
+    background-color: grey;
+}
