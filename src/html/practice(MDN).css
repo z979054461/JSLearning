@@ -26,3 +26,111 @@ p, li, dd, dt, address {
 p.italic {
   font-style: italic;
 }
+
+p::first-line{
+  color: blueviolet;
+}
+
+P::first-letter{
+  color:red;
+  font-size: 130%;
+}
+
+ul li:last-child{
+  font-weight: bolder;
+}
+
+/* :only-child {
+  background-color: lime;
+} */
+
+p::after {
+  content: " ➥";
+  
+}   
+  
+/* 按照LVHA的循顺序声明 */
+a:link { color: blue; }          /* 未访问链接 */
+a:visited { color: purple; }     /* 已访问链接 */
+a:hover { background: yellow; }  /* 用户鼠标悬停 */
+a:active { color: red; }         /* 激活链接 */
+
+p:active { background: #eee; }   /* 激活段落 */
+
+/* 缩放效果 */
+form :active {
+  transform: scale(0.9); 
+}
+
+/* Labels for checked inputs */
+input:checked + label {
+  color: red;
+}
+
+/* Radio element, when checked */
+input[type="radio"]:checked {
+  box-shadow: 0 0 0 3px orange;
+}
+
+/* Checkbox element, when checked */
+input[type="checkbox"]:checked {
+  box-shadow: 0 0 0 3px hotpink;
+}
+
+/* Option elements, when selected */
+option:checked {
+  box-shadow: 0 0 0 3px lime;
+  color: red;
+}
+
+/* 默认选项 */
+input:default {
+  box-shadow: 0 0 2px 1px coral;
+}
+input:default + label {
+  color: coral;
+}
+
+/* 打印文档 第一页的样式*/
+@page :first {
+  margin-left: 50%;
+  margin-top: 50%;
+}
+
+span[data-descr] {
+  position: relative;
+  text-decoration: underline;
+  color: #00F;
+  cursor: help;
+}
+
+span[data-descr]:hover::after {
+  content: attr(data-descr);
+  position: absolute;
+  left: 0;
+  top: 24px;
+  min-width: 200px;
+  border: 1px #aaaaaa solid;
+  border-radius: 10px;
+  background-color: #ffffcc;
+  padding: 12px;
+  color: #000000;
+  font-size: 14px;
+  z-index: 1; 
+}
+
+/* 画一个小对勾 */
+#gougou{
+  height: 2em;
+  width: 1em;
+  position: absolute;
+  border-color: red;
+  border-style: solid;
+  border-width: 0 0.3em 0.25em 0;
+  transform: rotate(45deg);
+}
+
+/* 修改userselect选中 */
+::selection {
+  background-color: cyan;
+}
