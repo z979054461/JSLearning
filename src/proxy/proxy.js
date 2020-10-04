@@ -150,13 +150,13 @@ proxy.apply(null, [7, 8]) // 30
 Reflect.apply(proxy, null, [9, 10]) // 38
 
 
-function hidePrivate(obj){
-    return new Proxy(obj,{
-        has:(target,p) =>{
-            if(p[0] === '_'){
+function hidePrivate(obj) {
+    return new Proxy(obj, {
+        has: (target, p) => {
+            if (p[0] === '_') {
                 return false
             }
-            return Reflect.has(target,p)
+            return Reflect.has(target, p)
         }
     })
 }
@@ -168,3 +168,52 @@ function hidePrivate(obj){
 //     at <anonymous>:1:5
 // 2、has方法拦截的是HasProperty操作，而不是HasOwnProperty操作，即has方法不判断一个属性是对象自身的属性，还是继承的属性。
 // 3、虽然for...in循环也用到了in运算符，但是has拦截对for...in循环不生效
+
+
+//deleteProperty
+function protectPrivate(obj) {
+    return new Proxy(obj, {
+        deleteProperty: (target, key) => {
+            if (key[0] === '_') {
+                throw new Error(`Invalid attempt to delete private "${key}" property`)
+            }
+            return Reflect.deleteProperty(target, key)
+        }
+    })
+}
+
+//defineProperty
+function preventAdd(obj) {
+    return new Proxy(obj, {
+        defineProperty: (target, key, desc) => {
+            // return false
+            desc = { writable: false }
+            return Reflect.defineProperty(target, key, desc)
+        }
+    })
+}
+
+//ownKeys
+function getPrivateObj(obj) {
+    return new Proxy(obj, {
+        ownKeys: (target, handler) => {
+            return Reflect.ownKeys(target).filter(key => key[0] === '_')
+        }
+    })
+}
+
+// construct
+function constructObj(obj) {
+    const handler = {
+        construct: function (target, argArray, newTarget) {
+            console.log(this !== target, this === handler, target === newTarget, this === window)
+            //箭头函数： true false false true
+            //普通函数： true true false false
+            // return new target(...argArray)
+            return {
+                value: argArray.toString()
+            }
+        }
+    }
+    return new Proxy(obj, handler)
+}

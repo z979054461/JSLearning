@@ -197,21 +197,95 @@ function hidePrivate(obj){
 ```
 
 ### deleteProperty
+- 目标对象自身的不可配置（configurable）的属性，不能被deleteProperty方法删除，否则报错。
+```js
+function protectPrivate(obj){
+    return new Proxy(obj, {
+        deleteProperty: (target, key) => {
+            if (key[0] === '_') {
+                throw new Error(`Invalid attempt to delete private "${key}" property`)
+            }
+            return Reflect.deleteProperty(target, key)
+        }
+    })
+}
+```
 
 ### ownKeys
+- 拦截对象自身属性的读取操作。
+  - Object.getOwnPropertyNames()
+  - Object.getOwnPropertySymbols()
+  - Object.keys()
+  - for...in循环
+- 三类属性会被ownKeys()方法自动过滤，不会返回
+  - 目标对象上不存在的属性
+  - 属性名为 Symbol 值
+  - 不可遍历（enumerable）的属性
+- ownKeys()方法返回的数组成员，只能是字符串或 Symbol 值。如果有其他类型的值，或者返回的根本不是数组，就会报错。
+- 如果目标对象自身包含不可配置的属性，则该属性必须被ownKeys()方法返回，否则报错。
+- 如果目标对象是不可扩展的（non-extensible），这时ownKeys()方法返回的数组之中，必须包含原对象的所有属性，且不能包含多余的属性，否则报错。
 
 ### getOwnPropertyDescriptor
+- 拦截Object.getOwnPropertyDescriptor()，返回一个属性描述对象或者undefined
 
 ### defineProperty
+- 如果目标对象不可扩展（non-extensible），则defineProperty()不能增加目标对象上不存在的属性，否则会报错(尝试了一下没有报错)
+- 如果目标对象的某个属性不可写（writable）或不可配置（configurable），则defineProperty()方法不得改变这两个设置。
+```js
+function preventAdd(obj) {
+    return new Proxy(obj, {
+        defineProperty: (target, key, desc) => {
+            // return false
+            desc = { writable: false }
+            return Reflect.defineProperty(target, key, desc)
+        }
+    })
+}
+```
 
 ### preventExtensions
+- 必须返回一个布尔值，否则会被自动转为布尔值。
+- 只有目标对象不可扩展时（即Object.isExtensible(proxy)为false），proxy.preventExtensions才能返回true，否则会报错。
+通常自己调用一下
+```js
+var proxy = new Proxy({}, {
+  preventExtensions: function(target) {
+    Reflect.preventExtensions(target);
+    return true;
+  }
+});
+```
 
 ### getPrototypeOf
+- 拦截获取对象原型
+  - Object.prototype.__proto__
+  - Object.prototype.isPrototypeOf()
+  - Object.getPrototypeOf()
+  - Reflect.getPrototypeOf()
+  - instanceof
+
+- getPrototypeOf()方法的返回值**必须是对象或者null**，否则报错
+- 如果目标对象不可扩展（non-extensible）， getPrototypeOf()方法**必须返回目标对象的原型对象**
+
 
 ### isExtensible
+- 拦截Object.isExtensible()操作
+- 只能返回布尔值，否则返回值会被自动转为布尔值
+- 返回值必须与目标对象的isExtensible属性保持一致，否则就会抛出错误
 
 ### setPrototypeOf
+- 该方法只能返回布尔值，否则会被自动转为布尔值。
+- 如果目标对象不可扩展（non-extensible），setPrototypeOf()方法不得改变目标对象的原型
 
+```js
+var handler = {
+  setPrototypeOf (target, proto) {
+      // proxy.__proto__ = {}
+      // Object.setPrototypeOf(proxy, {});
+    throw new Error('Changing the prototype is forbidden');
+  }
+};
+```
 ### apply
 ```js
 var twice = {
@@ -230,3 +304,55 @@ Reflect.apply(proxy, null, [9, 10]) // 38
 ```
 
 ### construct
+- 拦截new命令
+- 由于construct()拦截的是构造函数，所以它的目标对象必须是函数，否则就会报错
+- 必须返回对象，否则会报错
+- construct()方法中的this指向的是handler（普通函数），而不是实例对象
+
+```js
+function constructObj(obj) {
+    const handler = {
+        construct: function (target, argArray, newTarget) {
+            console.log(this !== target, this === handler, target === newTarget, this === window)
+            //箭头函数： true false false true
+            //普通函数： true true false false
+            // return new target(...argArray)
+            return {
+                value: argArray.toString()
+            }
+        }
+    }
+    return new Proxy(obj, handler)
+}
+```
+
+## Proxy.revocable()
+- Proxy.revocable()的一个使用场景是，目标对象不允许直接访问，必须通过代理访问，一旦访问结束，就收回代理权，不允许再次访问
+- 调用revoke函数将报错`VM2942:1 Uncaught TypeError: Cannot perform 'get' on a proxy that has been revoked`
+```js
+p = Proxy.revocable({},{})
+// {
+//     proxy: Proxy {}
+//     revoke: ƒ ()
+// }
+```
+
+## this 问题
+- 正常情况下（箭头函数除外），Proxy代理的钩子函数中的this指向的是Proxy代理实例（construct钩子函数除外，该钩子函数中this指向的是handler)
+- 虽然 Proxy 可以代理针对目标对象的访问，但它不是目标对象的透明代理，即不做任何拦截的情况下，也`无法保证与目标对象的行为一致`。主要原因就是在 Proxy 代理的情况下，目标对象内部的`this关键字会指向 Proxy 代理`。
+- 有些原生对象的内部属性(Date.getDate)，只有通过正确的this才能拿到，所以 Proxy 也无法代理这些原生对象的属性。this绑定原始对象，就可以解决这个问题。
+```js
+const target = new Date('2015-01-01');
+const handler = {
+    //TODO  为什么是拦截get而不是apply？
+  get(target, prop) {
+    if (prop === 'getDate') {
+      return target.getDate.bind(target);
+    }
+    return Reflect.get(target, prop);
+  }
+};
+const proxy = new Proxy(target, handler);
+proxy.getDate() // 1
+//不绑定this - TypeError: this is not a Date object.
+```
