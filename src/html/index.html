@@ -1,97 +1,52 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 源自MDN</title>
     <link rel="stylesheet" href="./index.css">
-    <title>html hello world</title>
-    <!-- <style>
-        p{
-            color:blue;
-        }
-    </style> -->
 </head>
 
 <body>
-    <!-- hello -->
-    <h1>heading 1</h1>
-    <h2>heading 2</h2>
-    <h3>heading 3</h3>
-    <h4>heading 4</h4>
-    <h5>heading 5</h5>
-    <ul>Inline Elemetn 内联元素</ul>
-    <li>underscore下划线</li>
-    <p>Block Level Element 块级元素</p>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <p>Lorem ipsum dolor sit, <strong>consectetur adipisicing</strong> elit. Alias, eveniet.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptas accusantium natus? Consequatur
-        explicabo porro placeat libero odio doloremque alias?</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eum, nesciunt inventore similique enim sed porro
-        dolor sapiente alias ad omnis asperiores fuga est nostrum possimus veritatis nemo saepe quam error et quia quas,
-        molestiae maiores quo. Officia, beatae aliquid.</p>
-    <a href="https://www.baidu.com" target="_blank">baidu</a>
+    <figure>
+        <img class='centerDisplay' width="500" height="500" title="title 庄周" src="./images/庄周.jpg" alt="大鱼 庄周">
 
-    <!-- table -->
-    <table>
+        <figcaption> 曼彻斯特大学博物馆展出的一只霸王龙的化</figcaption>
+    </figure>
+    <p>hello world</p>
 
-        <thead>
-            <tr>
-                <th>name</th>
-                <th>age</th>
-                <th>gender</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>xiaoming</td>
-                <td>18</td>
-                <td>man</td>
-            </tr>
-            <tr>
-                <td>xiaoming</td>
-                <td>18</td>
-                <td>man</td>
-            </tr>
-            <tr>
-                <td>xiaoming</td>
-                <td>18</td>
-                <td>man</td>
-            </tr>
-        </tbody>
-    </table>
-    <br>
-    <br>
-    <hr>
-    <hr>
-    <!-- form -->
-    <form >
+    <!-- autoplay（自动播放）  加上muted（静音）才会播放……  -->
+    <video loop muted controls width="400" height="400" poster='./images/庄周.jpg'>
+        <!-- 浏览器将会检查 <source> 标签，并且播放第一个与其自身 codec 相匹配的媒体。你的视频应当包括 WebM 和 MP4 两种格式，这两种在目前已经足够支持大多数平台和浏览器。 -->
+        <source src="./media/rabbit320.mp4" type="video/mp4">
+        <!-- <source src="./media/rabbit320.webm" type="video/webm"> -->
+        <!-- subtitles 、 captions 、 descriptions -->
+        <!-- TODO track标签没成功 -->
+        <track label='tracker1' default src="media/rabbit320.vtt" kind="descriptions" srclang='en' />
+        <p>你的浏览器不支持 HTML5 视频。可点击<a href="./media/rabbit320.webm">此链接</a>观看</p>
+    </video>
 
-        <div>
-            <label>First Name</label>
-            <input type="text" name='firstName' placeholder="enter first Name">
-        </div>
-        <div>
-            <label>Last Name</label>
-            <input type="text" name='lastName' placeholder="enter last Name">
-        </div>
-        <div>
-            <label>Email</label>
-            <input type="email" name='Email' placeholder="enter email">
-        </div>
+    <audio controls>
+        <source src="./media/viper.mp3" type="audio/mp3">
+        <source src="./media/viper.ogg" type="audio/ogg">
+        <p>你的浏览器不支持 HTML5 音频，可点击<a href="viper.mp3">此链接</a>收听。</p>
+    </audio>
 
-        <!-- <input type="submit" name='submit' value='Submit'> -->
+    <iframe src="https://player.bilibili.com/player.html?aid=19390801&cid=31621681&page=1" scrolling="no" border="0"
+        frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+    <p>改革春风吹满地</p>
 
-    </form>
+    <!-- <iframe src="//player.bilibili.com/player.html?aid=202354480&bvid=BV1eh41197NB&cid=241229559&page=1" scrolling="no"
+        border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe> -->
 
-    <button >This is a Button</button>
+    <iframe src="https://www.baidu.com" width="900" height="500" frameborder="0"></iframe>
 
-<img src="" alt="">
 
-<blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum fuga obcaecati sit tenetur eveniet quae. Dolore corporis accusamus vero nisi possimus. Deleniti est architecto excepturi quis fugiat totam tempore? Similique!</blockquote>
-
-<p> <abbr title='hello MIT'>MIT</abbr> is a hhh aaa</p>
-    <div style="margin-top:1000px"></div>
+    <svg class="block" version="1.1" baseProfile="full" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100%" height="100%" fill="black" />
+        <circle cx="150" cy="100" r="90" fill="blue" />
+    </svg>
 </body>
 
 </html>

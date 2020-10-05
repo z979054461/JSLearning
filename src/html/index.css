@@ -1,13 +1,16 @@
-/* selector
-标签选择器
-类选择器
-ID选择器 */
-
-
-p{
-    color:red;
+.centerDisplay {
+    /* display: block; */
+    margin: auto 300px;
 }
 
-.html{
-    background-color: grey;
+.block {
+    display: block;
 }
+
+video::cue {
+    font-size: 1rem;
+}
+
+/* p {
+    background-image: url(./images/庄周.jpg);
+} */
