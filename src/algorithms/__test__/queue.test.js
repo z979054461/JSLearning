@@ -1,7 +1,7 @@
 
 
 // import add from './queue'
-const { MyQueue, MyCircularQueue } = require('../src/queue')
+import { MyQueue, MyCircularQueue } from '../src/queue';
 
 test('MyQueue test', () => {
     const queue = new MyQueue();

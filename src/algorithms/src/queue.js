@@ -107,7 +107,7 @@ class MyCircularQueue {
  * var param_6 = obj.isFull()
  */
 
-module.exports = {
+export {
     MyQueue,
     MyCircularQueue
 }
