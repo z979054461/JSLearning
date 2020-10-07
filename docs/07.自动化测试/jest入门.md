@@ -17,6 +17,23 @@
     "presets": ["env"]
   }
 ```
+5. 官方的配置太繁琐，简化如下：
+   1. .babelr文件
+   ```js
+    {
+        "env": {
+            "test": {
+                "plugins": [
+                    "@babel/plugin-transform-modules-commonjs"
+                ]
+            }
+        }
+    }
+   ```
+   2. package.json - devDependencies
+   ```js
+    "@babel/plugin-transform-modules-commonjs": "^7.7.0",
+   ```
 
 ## 使用
 

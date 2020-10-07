@@ -1,7 +1,7 @@
 
 
 // import add from './queue'
-import { MyQueue, MyCircularQueue } from '../src/queue';
+import { MyQueue, MyCircularQueue } from '../src/practiceQueue';
 
 test('MyQueue test', () => {
     const queue = new MyQueue();
