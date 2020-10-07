@@ -38,18 +38,4 @@ export class CircularQueue {
     isFull() {
 
     }
-    /**
-     * Get the front item from the queue.
-     * @return {number}
-     */
-    getFront() {
-
-    }
-    /**
-     * Get the last item from the queue.
-     * @return {number}
-     */
-    getRear() {
-
-    }
 }
