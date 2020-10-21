@@ -81,8 +81,19 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-var hasCycle = function(head) {
-    
+var hasCycle = function (head) {
+    if (head === null || head.next === null) return false;
+    let p = q = head;
+    while (p) {
+        p = p.next ? p.next.next : null;
+        q = q.next;
+        if (p && p === q) return true;
+    }
+    return false;
 };
 // @lc code=end
 
+
+// @after-stub-for-debug-begin
+module.exports = hasCycle;
+// @after-stub-for-debug-end
