@@ -59,10 +59,6 @@
  *     this.next = (next===undefined ? null : next)
  * }
  */
-function ListNode(val, next) {
-    this.val = (val === undefined ? 0 : val)
-    this.next = (next === undefined ? null : next)
-}
 /**
  * @param {ListNode} head
  * @return {ListNode}
@@ -86,6 +82,28 @@ var swapPairs = function (head) {
             q.next = null;
             p.next = q
         }
+    }
+    return hair.next
+};
+
+var swapPairs2 = function (head) {
+    const hair = new ListNode(0, head);
+    let even = 0 //当前是否偶数节点
+    let p = hair, q = p ? p.next : null, r = q ? q.next : null;
+    while (q) {
+        if (even) {
+            p.next = r
+            q.next = p.next
+            p.next = q
+
+            p = p.next.next
+            q = r
+            r = r ? r.next : null
+        }
+        p = q
+        q = r
+        r = r ? r.next : null
+        even = ~even
     }
     return hair.next
 };

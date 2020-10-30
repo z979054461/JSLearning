@@ -42,3 +42,8 @@ on (t.column2 = t1.column3)
 when matched then 
   update  set t1.column1 = t.column1;
 ```
+
+## 与mysql insert ignore相同效果的语句
+[参考地址](https://docs.oracle.com/cd/E11882_01/server.112/e41084/sql_elements006.htm#CHDEGDDG)  
+`insert /*+ ignore_row_on_dupkey_index(TableName, IndexName) */ into TableName (Column1, Column2, Column3, Column4)
+values (Value1, Value2,Value3,Value4);`
