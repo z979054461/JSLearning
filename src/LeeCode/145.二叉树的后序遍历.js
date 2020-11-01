@@ -44,25 +44,27 @@
  * @return {number[]}
  */
 var postorderTraversal = function (root) {
-    let ret = [],
-        stack = [], p = root, prev;
+    const stack = [];
+    let p = root, pre = null;
+    const ret = [];
     while (p || stack.length) {
-        while (p) {
+        if (p) {
             stack.push(p);
             p = p.left;
-        }
-        p = stack.pop();
-        if (!p.right || p.right === prev) {
-            ret.push(p.val)
-            prev = p
-            p = null
         } else {
-            stack.push(p);
-            p = p.right;
+            p = stack.pop();
+            if (!p.right || p.right === pre) {//没有右子树或刚访问过右子树
+                ret.push(p.val);
+                pre = p;
+                p = null;
+            } else {//有右子树并且没有访问
+                stack.push(p);//当前节点入栈
+                stack.push(p.right);//右子树入栈
+                p = p.right.left;//转向右子树的左子树
+            }
         }
-
     }
-    return ret;
+    return ret
 };
 // @lc code=end
 

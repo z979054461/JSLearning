@@ -48,7 +48,7 @@ function PreOrder(T, visit = x => console.log(x.val)) {
 }
 
 /**
- * 中序遍历
+ * 中序遍历 递归
  * @param {BiTree} T 
  * @param {Function} visit 
  */
@@ -61,7 +61,7 @@ function InOrder(T, visit = x => console.log(x.val)) {
 }
 
 /**
- * 后序遍历
+ * 后序遍历 递归
  * @param {BiTree} T 
  * @param {Function} visit 
  */
@@ -126,19 +126,23 @@ function InOrder2(T, visit = x => console.log(x.val)) {
  */
 function PostOrder2(T, visit = x => console.log(x.val)) {
     const stack = [];
-    let p = T;
+    let p = T, pre = null;
     while (stack.length || p) {
-        // if (p) {
-        //     stack.push(p)
-        //     p = p.left;
-        // } else {
-        //     p = stack.pop();
-        //     if (p.right) {
-        //         p = p.right;
-        //     } else {
-        //         visit(p);
-        //     }
-        // }
+        if (p) {
+            stack.push(p)
+            p = p.left;
+        } else {
+            p = stack.pop();
+            if (!p.right || p.right === pre) {//没有右子树或刚访问过右子树
+                visit(p);
+                pre = p
+                p = null;
+            } else {//有右子树并且没有访问
+                stack.push(p);
+                stack.push(p.right);//右子树入栈
+                p = p.right.left;//转向右子树的左子树
+            }
+        }
     }
 }
 /**
@@ -163,6 +167,23 @@ function LevelOrder(T, visit = x => console.log(x.val)) {
 // const collection = [];
 // const fn = x => collection.push(x.val)
 // InOrder2(biTree, fn);
+
+//TODO: implement
+function CreateBiTree(preOrderArr = [], inOrderArr = []) {
+    if (preOrderArr.length === 0 || inOrderArr.length === 0) return
+
+    const root = null
+    const fn = (p, preOrder, inOrder) => {
+        p = new TreeNode(preOrder[0]);
+        let index = inOrder.findIndex(x => x === preOrder[0]),
+            inOrderLeft = inOrder.slice(0, index),
+            inOrderRight = inOrder.slice(index + 1);
+        fn(p.left, preOrder.filter(x => inOrderLeft.includes(x)), inOrderLeft);
+        fn(p.right, preOrder.filter(x => inOrderRight.includes(x)), inOrderRight);
+    }
+    fn(root, preOrderArr, inOrderArr);
+    return root;
+}
 
 export {
     BiTree, PreOrder, InOrder, PostOrder, PreOrder2, InOrder2, PostOrder2, LevelOrder
