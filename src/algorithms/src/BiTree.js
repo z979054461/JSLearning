@@ -168,22 +168,28 @@ function LevelOrder(T, visit = x => console.log(x.val)) {
 // const fn = x => collection.push(x.val)
 // InOrder2(biTree, fn);
 
-//TODO: implement
-function CreateBiTree(preOrderArr = [], inOrderArr = []) {
-    if (preOrderArr.length === 0 || inOrderArr.length === 0) return
-
-    const root = null
-    const fn = (p, preOrder, inOrder) => {
-        p = new TreeNode(preOrder[0]);
-        let index = inOrder.findIndex(x => x === preOrder[0]),
-            inOrderLeft = inOrder.slice(0, index),
-            inOrderRight = inOrder.slice(index + 1);
-        fn(p.left, preOrder.filter(x => inOrderLeft.includes(x)), inOrderLeft);
-        fn(p.right, preOrder.filter(x => inOrderRight.includes(x)), inOrderRight);
+/**
+ * 前序、中序 创建二叉树
+ * @param {number[]} preorder
+ * @param {number[]} inorder
+ * @return {TreeNode}
+ */
+var buildTree = function (preorder, inorder) {
+    const IndexInorder = {};//字符在中序序列中的下标
+    inorder.forEach((val, idx) => IndexInorder[val] = idx);
+    const n = preorder.length;
+    const fn = (preLeft, preRight, inLeft, inRight) => {
+        if (preLeft > preRight) return null;
+        const p = new TreeNode(preorder[preLeft]),//创建根节点
+            indexRoot = IndexInorder[preorder[preLeft]],//根节点位置
+            leftSubTreeSize = indexRoot - inLeft;//左子树长度
+        p.left = fn(preLeft + 1, preLeft + leftSubTreeSize, inLeft, indexRoot - 1);
+        p.right = fn(preLeft + leftSubTreeSize + 1, preRight, indexRoot + 1, inRight);
+        return p
     }
-    fn(root, preOrderArr, inOrderArr);
-    return root;
-}
+
+    return fn(0, n - 1, 0, n - 1);
+};
 
 export {
     BiTree, PreOrder, InOrder, PostOrder, PreOrder2, InOrder2, PostOrder2, LevelOrder
