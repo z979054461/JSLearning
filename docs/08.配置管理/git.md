@@ -33,7 +33,7 @@ git pull
 ```
 
 ### Error while executing: C:\Program Files\Git\cmd\git.EXE ls-remote -h -t ssh:...
-```log
+```
 npm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
 npm ERR! code ENOENT
 npm ERR! syscall spawn git
