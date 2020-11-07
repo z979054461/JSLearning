@@ -14,6 +14,8 @@
 - git branch -d [branchname] 删除分支
 - git push origin --delete [branchname] 删除远程分支
 - git fetch -p 清理本地无效分支（远程已删除）
+
+
 ## 问题记录
 ### git冲突：commit your changes or stash them before you can merge
 1. 处理冲突  
@@ -29,3 +31,20 @@ git stash pop
 git reset --hard
 git pull
 ```
+
+### Error while executing: C:\Program Files\Git\cmd\git.EXE ls-remote -h -t ssh:...
+```log
+npm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+npm ERR! code ENOENT
+npm ERR! syscall spawn git
+npm ERR! path git
+npm ERR! errno ENOENT
+npm ERR! enoent Error while executing:
+npm ERR! enoent C:\Program Files\Git\cmd\git.EXE ls-remote -h -t ssh://git@github.com/boboidream/vuepress-bar.git
+npm ERR! enoent 
+npm ERR! enoent 
+npm ERR! enoent spawn git ENOENT
+npm ERR! enoent This is related to npm not being able to find a file.
+npm ERR! enoent
+```
+解决方法：`cnpm install`
