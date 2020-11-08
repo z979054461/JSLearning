@@ -1,3 +1,11 @@
+---
+title: class
+date:  2020-07-17
+author: 会飞的小弋
+categories:
+ - frontEnd
+---
+
 # ES6 class
 
 ## 静态方法、静态属性、私有方法、私有属性

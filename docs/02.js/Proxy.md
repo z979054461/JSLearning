@@ -1,3 +1,11 @@
+---
+title: Proxy
+date:  2020-07-17
+author: 会飞的小弋
+categories:
+ - backEnd
+---
+
 # Proxy
 
 Proxy 实际上重载（overload）了点运算符，即用自己的定义覆盖了语言的原始定义。
