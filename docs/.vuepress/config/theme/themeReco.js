@@ -1,20 +1,20 @@
 module.exports = {
   type: 'HomePageOne',
-  // logo: '/icon_vuepress_reco.png',
+  logo: '/logo.png',
   // 搜索设置
   search: true,
   searchMaxSuggestions: 10,
   // 自动形成侧边导航
-  sidebar: 'auto',
+  // sidebar: 'auto',//这里的sidebar会被插件覆盖，需要每个md文件中开启
   // 最后更新时间
   lastUpdated: 'Last Updated', // string | boolean
   // 作者
-  author: 'reco_luan',
+  author: '、夕月',
   authorAvatar: '/head.png',
   // 备案号
   // record: '京ICP备17067634号-1',
   // 项目开始时间
-  startYear: '2017',
+  startYear: '2020',
   algolia: {
     apiKey: '97357e58cac743c6de62036cb152f18b',
     indexName: 'vuepress-theme-reco'
@@ -32,20 +32,13 @@ module.exports = {
     recordIP: true,
     showComment: true
   },
-  // vssueConfig: {
-  //   admins: ['recoluan'],
-  //   platform: 'github',
-  //   owner: 'vuepress-reco',
-  //   repo: 'vuepress-reco.github.io',
-  //   clientId: '4d81cea3b3d8aac8e88e',
-  //   clientSecret: 'd23e8556b6d3c85abffbf4b8d853afb2ea08875a',
-  // },
+  // displayAllHeaders: true, // 默认值：false  相当于全部展开
   // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
-  repo: 'vuepress-reco/vuepress-reco.github.io',
+  repo: 'https://github.com/z979054461/JSLearning',
   // // 假如文档不是放在仓库的根目录下：
   docsDir: 'docs',
   // // 假如文档放在一个特定的分支下：
-  docsBranch: 'gh-pages-source',
+  // docsBranch: 'gh-pages',
   // // 默认是 false, 设置为 true 来启用
   editLinks: true,
   mode: 'light',

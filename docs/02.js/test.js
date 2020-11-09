@@ -14,33 +14,51 @@
 
 
 var fs = require('fs');
-var path=require('path');  /*nodejs自带的模块*/
-var join = path.join;
-const extname=path.extname
- 
-function getJsonFiles(jsonPath){
-    let jsonFiles = [];
-    function findJsonFile(path){
+var PATH = require('path');  /*nodejs自带的模块*/
+var join = PATH.join;
+const extname = PATH.extname
+var pinyin = require("node-pinyin");
+
+pinyin('中国', { style: 'normal' })
+
+function getJsonFiles(searchPath = './') {
+    let jsonFiles = {};
+    function findJsonFile(path, deep = 0) {
         let files = fs.readdirSync(path);
         files.forEach(function (item, index) {
-            let fPath = join(path,item);
-            let stat = fs.statSync(fPath);
-            if(stat.isDirectory() === true) {
-                findJsonFile(fPath);
-            }
-            if (stat.isFile() === true) { 
-              jsonFiles.push(fPath);
+            const fPath = join(path, item);
+            const stat = fs.statSync(fPath);
+            if (stat.isDirectory() === true) {
+                if ('.vuepress' !== fPath) {
+                    jsonFiles[`/${fPath}/`] = []
+                    findJsonFile(fPath, deep + 1);
+                }
+            } else if (stat.isFile() === true) {
+                const extName = PATH.extname(fPath);
+                const baseName = PATH.basename(fPath, extName);
+                if (extName === '.md' && baseName.toUpperCase() !== 'README') {
+                    baseNamePY = pinyin(baseName, { style: 'normal' }).join('-')
+                    if (deep === 0) {
+                        jsonFiles[`/${baseNamePY}`] = baseName;
+                    } else {
+                        jsonFiles[`/${path}/`].push({ title: baseName, path: baseNamePY });
+                    }
+                }
+
+
             }
         });
     }
-    findJsonFile(jsonPath);
+    findJsonFile(searchPath);
     // console.log(jsonFiles);
     return jsonFiles
 }
- 
+
+console.log(getJsonFiles())
+return;
 //readme也要排除
 let ret = getJsonFiles('./').filter(file => path.extname(file) == '.md').map(file => {
-    const fileName = path.basename(file,path.extname(file));
-    return {title:fileName,path:fileName}
+    const fileName = path.basename(file, path.extname(file));
+    return { title: fileName, path: fileName }
 })
 console.log(ret)

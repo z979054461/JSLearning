@@ -1,5 +1,5 @@
 const nav = require('../nav/')
-const sidebar = require('../sidebar/')
+// const sidebar = require('../sidebar/')
 module.exports = {
   // 键名是该语言所属的子路径
   // 作为特例，默认语言可以使用 '/' 作为其路径。
@@ -31,7 +31,7 @@ module.exports = {
       // debug: false // Set debug to true if you want to inspect the dropdown
     },
     nav: nav.zh,
-    sidebar: sidebar.zh
+    // sidebar: sidebar.zh
   },
   '/en/': {
     selectText: '语言',
@@ -56,6 +56,6 @@ module.exports = {
       // debug: false // Set debug to true if you want to inspect the dropdown
     },
     nav: nav.en,
-    sidebar: sidebar.en
+    // sidebar: sidebar.en
   }
 }

@@ -1,10 +1,12 @@
 const path = require('path')
 const themeConfig = require('./config/theme/')
-
+// console.log('hhhhhhhhhhhhhhhhh:',JSON.stringify(themeConfig))
 module.exports = {
-  dest: 'public',
-  // base: '/vuepress-theme-reco-doc/',
+  //指定 vuepress build 的输出目录。如果传入的是相对路径，则会基于 process.cwd() 进行解析
+  // dest: '.vuepress/dist',
+  // base: '/JSLearning/',
   head: [
+    // ['link', { rel: 'icon', href: '/logo.png' }]
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
     ['meta', { name: 'author', content: 'reco_luan' }],
@@ -33,7 +35,7 @@ module.exports = {
     }    
   },
   markdown: {
-    // lineNumbers: true
+    lineNumbers: true
   },
   plugins: [
     [
@@ -46,12 +48,12 @@ module.exports = {
         }
       }
     ],
-    [
-      '@vuepress/google-analytics',
-      {
-        ga: 'UA-149716079-2'
-      }
-    ],
+    // [
+    //   '@vuepress/google-analytics',
+    //   {
+    //     ga: 'UA-149716079-2'
+    //   }
+    // ],
     [
       '@vuepress/plugin-register-components',
       {
@@ -73,36 +75,37 @@ module.exports = {
       site_url: 'https://vuepress-theme-reco.recoluan.com',
       copyright: ''
     }],
-    ['@vuepress-reco/bulletin-popover', {
-      body: [
-        {
-          type: 'title',
-          content: '欢迎加入QQ交流群 🎉🎉🎉',
-          style: 'text-aligin: center;'
-        },
-        {
-          type: 'text',
-          content: 'QQ群1：1037296104',
-          style: 'text-align: center;'
-        },
-        {
-          type: 'text',
-          content: 'QQ群2：1061561395',
-          style: 'text-align: center;'
-        },
-        // {
-        //   type: 'image',
-        //   src: '/rvcode_qq.png'
-        // }
-      ],
-      footer: [
-        {
-          type: 'button',
-          text: '打赏',
-          link: '/views/other/donate.html'
-        }
-      ]
-    }],
-    '@vuepress-reco/extract-code'
+    // ['@vuepress-reco/bulletin-popover', {
+    //   body: [
+    //     {
+    //       type: 'title',
+    //       content: '欢迎加入QQ交流群 🎉🎉🎉',
+    //       style: 'text-aligin: center;'
+    //     },
+    //     {
+    //       type: 'text',
+    //       content: 'QQ群1：1037296104',
+    //       style: 'text-align: center;'
+    //     },
+    //     {
+    //       type: 'text',
+    //       content: 'QQ群2：1061561395',
+    //       style: 'text-align: center;'
+    //     },
+    //     // {
+    //     //   type: 'image',
+    //     //   src: '/rvcode_qq.png'
+    //     // }
+    //   ],
+    //   footer: [
+    //     {
+    //       type: 'button',
+    //       text: '打赏',
+    //       link: '/views/other/donate.html'
+    //     }
+    //   ]
+    // }],
+    '@vuepress-reco/extract-code',
+    'permalink-pinyin', ['autobar', { 'pinyinNav': true }], 'rpurl'
   ]
 }  
