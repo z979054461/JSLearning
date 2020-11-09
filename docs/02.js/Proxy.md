@@ -1,9 +1,14 @@
 ---
 title: Proxy
-date:  2020-07-17
-author: 会飞的小弋
+date: 2020-11-09
+lang: 'zh-CN'
+sidebar: 'auto'
 categories:
  - backEnd
+tags: 
+  - JavaScript
+  - Vue
+location: HangZhou
 ---
 
 # Proxy

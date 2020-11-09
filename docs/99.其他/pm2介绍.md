@@ -1,4 +1,14 @@
-# pm2介绍
+---
+title: pm2介绍
+date: 2020-11-09
+lang: 'zh-CN'
+sidebar: 'auto'
+categories:
+ - other
+tags: 
+  - pm2
+location: HangZhou
+---
 
  ## 安装 node 
 - http://nodejs.cn/

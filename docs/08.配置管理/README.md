@@ -1,19 +1,11 @@
 ---
-title: JS
+title: 配置管理
 date: 2020-11-09
 lang: 'zh-CN'
 sidebar: 'auto'
 categories:
  - blog
 tags: 
-  - JavaScript
-  - Vue
+  - 配置管理
 location: HangZhou
 ---
-
-
-JavaScript
-
-::: warning
-hhhhh  JS基础知识总结
-:::

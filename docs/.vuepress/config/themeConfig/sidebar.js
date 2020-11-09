@@ -1,21 +1,21 @@
 module.exports = {
   'zh': Object.assign({}, {
-    '/02.js/':[
+    '/02.js/': [
       // { title:'安全', path:'safe'},
       // { title:'class', path:'class'},
-      {title:'core',collapsable:false,children:['','Proxy','Reflect']},
+      { title: 'core', collapsable: false, children: ['', 'Proxy', 'Reflect'] },
       { title: 'class', path: 'class' },
-  {
-    title: 'freeze seal preventExtensions',
-    path: 'freeze seal preventExtensions'
-  },
-  { title: 'HTTP cookies', path: 'HTTP cookies' },
-  { title: 'Proxy', path: 'Proxy' },
-  { title: 'Reflect', path: 'Reflect' },
-  { title: 'safe', path: 'safe' },
-  { title: 'Storage', path: 'Storage' },
-  { title: 'this', path: 'this' },
-  { title: '跨域', path: '跨域' }
+      {
+        title: 'freeze seal preventExtensions',
+        path: 'freeze seal preventExtensions'
+      },
+      { title: 'HTTP cookies', path: 'HTTP cookies' },
+      { title: 'Proxy', path: 'Proxy' },
+      { title: 'Reflect', path: 'Reflect' },
+      { title: 'safe', path: 'safe' },
+      { title: 'Storage', path: 'Storage' },
+      { title: 'this', path: 'this' },
+      { title: '跨域', path: '跨域' }
     ],
     '/views/1.x/': [
       {

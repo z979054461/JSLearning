@@ -1,19 +1,11 @@
 ---
-title: JS
+title: 自动化测试
 date: 2020-11-09
 lang: 'zh-CN'
 sidebar: 'auto'
 categories:
  - blog
 tags: 
-  - JavaScript
-  - Vue
+  - 自动化测试
 location: HangZhou
 ---
-
-
-JavaScript
-
-::: warning
-hhhhh  JS基础知识总结
-:::

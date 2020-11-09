@@ -1,4 +1,4 @@
-const nav = require('../nav/')
+const nav = require('./nav.js')
 // const sidebar = require('../sidebar/')
 module.exports = {
   // 键名是该语言所属的子路径

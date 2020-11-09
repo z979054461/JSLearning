@@ -1,9 +1,13 @@
 ---
 title: class
-date:  2020-07-17
-author: 会飞的小弋
+date: 2020-11-09
+lang: 'zh-CN'
+sidebar: 'auto'
 categories:
  - frontEnd
+tags: 
+  - ES6
+location: HangZhou
 ---
 
 # ES6 class

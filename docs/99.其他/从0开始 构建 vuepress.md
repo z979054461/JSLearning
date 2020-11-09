@@ -1,4 +1,14 @@
-# 从0开始 构建 vuepress
+---
+title: 从0开始 构建 vuepress
+date: 2020-11-09
+lang: 'zh-CN'
+sidebar: 'auto'
+categories:
+ - other
+tags: 
+  - vuepress
+location: HangZhou
+---
 
     官网 https://vuepress.vuejs.org/zh/
 ## 依赖

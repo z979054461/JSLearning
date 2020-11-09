@@ -9,7 +9,7 @@
           alt="hero" />
         <!-- <h1>{{ $frontmatter.heroText || $title }}</h1> -->
         <p class="description">{{ $description }}</p>
-        <div>
+        <!-- <div>
           <a target="_black" href="https://github.com/vuepress-reco/vuepress-theme-reco">
             <img alt="GitHub license" src="https://img.shields.io/github/license/vuepress-reco/vuepress-theme-reco?&logo=github">
           </a>
@@ -25,7 +25,7 @@
           <a target="_black" href="https://www.npmjs.com/package/vuepress-theme-reco">
             <img alt="Npm version" src="https://img.shields.io/npm/v/vuepress-theme-reco.svg?style=flat&logo=npm&label=version"/>
           </a>
-        </div>
+        </div> -->
         <router-link class="btn-about" :to="$frontmatter.actionLink">{{ $frontmatter.actionText }}</router-link>
         <!-- <img class="banner" src="./images/blog.svg" alt=""> -->
       </div>
@@ -90,6 +90,7 @@ export default {
   },
 
   created () {
+    console.log(this.$frontmatter)
     // const date = new Date()
     // const year = date.getFullYear()
     // const mounth = date.getMonth() + 1

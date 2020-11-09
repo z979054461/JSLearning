@@ -1,9 +1,13 @@
+const sidebar = require('./sidebar.js')
+const locales = require('./locales.js')
+
 module.exports = {
   type: 'HomePageOne',
   logo: '/logo.png',
   // 搜索设置
   search: true,
   searchMaxSuggestions: 10,
+  locales,
   // 自动形成侧边导航
   // sidebar: 'auto',//这里的sidebar会被插件覆盖，需要每个md文件中开启
   // 最后更新时间
