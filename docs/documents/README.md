@@ -7,3 +7,5 @@ location: HangZhou
 ---
 
 此目录用于存放文档
+
+@TODO  多行字符串怎么实现KMP算法？
