@@ -22,6 +22,25 @@ location: HangZhou
 ## imp 导入
   `imp user/passwd@instance file=./XXX.dmp full=y ignore=y`
 
-## expdb
+## expdb 
+  - 导出当前用户
+  `expdp user/passwd@instance file=./XXX.dmp` 
+  - 全量导出（-full=y） 
+  `expdp user/passwd@instance file=./XXX.dmp full=y`
+  - 导出指定用户
+  `expdp user/passwd@instance schemas=user file=./XXX.dmp`
+  - 导出指定表空间
+  `expdp user/passwd@instance tablespace=tbs1,tbs2 file=./XXX.dmp`
+  - 导出指定表
+  `expdp user/passwd@instance file=./XXX.dmp tables=tableName,tableName2`
+  - 按条件导出
+  `expdp user/passwd@instance tables=table1='where number=1234' file=./XXX.dmp`
 
 ## impdb
+  - 全量导入
+  `impdp user/passwd@instance file=./XXX.dmp full=y logfile=test.log`
+  - 同名用户导入
+  `impdp A/passwd schemas=A file=./XXX.dmp logfile=impdp.log;　`
+
+
+https://www.cnblogs.com/chinas/p/8300955.html#_label3
