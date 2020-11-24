@@ -25,7 +25,7 @@ location: HangZhou
 ## expdb 
   - 导出当前用户
   `expdp user/passwd@instance file=./XXX.dmp` 
-  - 全量导出（-full=y） 
+  - 全量导出（全部用户） 
   `expdp user/passwd@instance file=./XXX.dmp full=y`
   - 导出指定用户
   `expdp user/passwd@instance schemas=user file=./XXX.dmp`
