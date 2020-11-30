@@ -20,7 +20,10 @@ location: HangZhou
   `exp user/passwd@instance file=./XXX.dmp tables=tableName,tableName2`
 
 ## imp 导入
+  全量导入
   `imp user/passwd@instance file=./XXX.dmp full=y ignore=y`
+  按用户导入
+  `imp user/passwd@instance file=./XXX.dmp fromuser=A touser=B ignore=y`
 
 ## expdb 
   - 导出当前用户
