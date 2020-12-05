@@ -22,9 +22,10 @@ create table Student(
 )
 ```
 
-## 单条插入
+## 单条多次插入
 ```sql
-insert into Student(id, name, sex, age, tel) values ('13', 'jack', '男', 13, '13345674567')
+insert into Student(id, name, sex, age, tel) values ('12', 'jack1', '男', 12, '13345674567');
+insert into Student(id, name, sex, age, tel) values ('13', 'jack2', '男', 13, '13345674567');
 ```
 
 ## 批量插入
