@@ -11,7 +11,7 @@ heroImageStyle: {
   borderRadius: '1rem',
 }
 actionText: About
-actionLink: /documents/qi-ta/about
+actionLink: /qi-ta/about
 features:
 - title: 过去
   details: 写着无聊无趣的业务代码，浑浑噩噩度日。
@@ -27,3 +27,7 @@ footer: MIT Licensed | Copyright © 2019-present Tianxiang
 ::: tip
 Enjoy your colorful life.
 :::  -->
+
+@TODO  多行字符串怎么实现KMP算法？
+@TODO   CI/CD
+@TODO  giuhub tag https://www.jianshu.com/p/36202c29e6ae
