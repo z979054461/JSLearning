@@ -14,3 +14,4 @@
 - git branch -d [branchname] 删除分支
 - git push origin --delete [branchname] 删除远程分支
 - git fetch -p 清理本地无效分支（远程已删除）
+- git reset --hard origin/test 指针重置到另一个分支，用于分支覆盖
