@@ -22,12 +22,4 @@ features:
 footer: MIT Licensed | Copyright © 2019-present Tianxiang
 ---
 
-<!-- [ES6](http://es6.ruanyifeng.com/)   [Lodash](https://www.html.cn/doc/lodash/)   [TypeScript](https://jkchao.github.io/typescript-book-chinese/)  
-
-::: tip
-Enjoy your colorful life.
-:::  -->
-
-@TODO  多行字符串怎么实现KMP算法？
-@TODO   CI/CD
-@TODO  giuhub tag https://www.jianshu.com/p/36202c29e6ae
+<!-- [ES6](http://es6.ruanyifeng.com/)   [Lodash](https://www.html.cn/doc/lodash/)   [TypeScript](https://jkchao.github.io/typescript-book-chinese/)-->

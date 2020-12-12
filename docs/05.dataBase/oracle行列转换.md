@@ -10,6 +10,9 @@ tags:
 location: HangZhou
 ---
 
+# Heading
+[[toc]]
+
 使用oracle经典的scott表结构
 [oracle](/数据库行列转换/SCOTT_oracle.sql)(5.71 KB)
 [mysql](/数据库行列转换/SCOTT_mysql.sql)(3.98 KB)

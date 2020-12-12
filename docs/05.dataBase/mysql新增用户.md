@@ -10,6 +10,9 @@ tags:
 location: HangZhou
 ---
 
+# Heading
+[[toc]]
+
 ## 删除用户
 ```sql
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ANSI';

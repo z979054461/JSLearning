@@ -9,6 +9,9 @@ tags:
 location: HangZhou
 ---
 
+# Heading
+[[toc]]
+
 `!important，使用此标记的CSS属性总是最优先的。 `
 ## !important->id->class->tag 
 important 比 内联优先级高,但内联比 id 要高；如果两个规则的特殊性相同，那么后定义的会覆盖先定义的；
