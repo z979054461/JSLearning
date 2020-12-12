@@ -10,8 +10,8 @@ heroImageStyle: {
   margin: '0 auto 2rem',
   borderRadius: '1rem',
 }
-actionText: About
-actionLink: /qi-ta/about
+actionText: TODO
+actionLink: /qi-ta
 features:
 - title: 过去
   details: 写着无聊无趣的业务代码，浑浑噩噩度日。

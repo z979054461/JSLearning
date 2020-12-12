@@ -21,7 +21,7 @@ module.exports = {
     algolia: {
       start_urls: [
         {
-          "url": "https://vuepress-theme-reco.recoluan.com/"
+          "url": "https://www.yuetianxiang.com/"
         }
       ],
       apiKey: '97357e58cac743c6de62036cb152f18b',
