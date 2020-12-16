@@ -65,6 +65,7 @@ export default {
 ## 流程图
 
 **FLOW**
+
 ```mermaid
 graph TD
     id[带文本的矩形]
@@ -73,6 +74,7 @@ graph TD
     id1{带文本的菱形}
     id2((带文本的圆形))
 ```
+
 ```mermaid
 graph TD
 A[Hard] -->|Text| B(Round)
