@@ -1,52 +1,59 @@
-/**
- * Definition for singly-linked list.
- */
-export class ListNode {
-    constructor(value, next) {
-        this.value = (value === undefined ? 0 : value);
-        this.next = (next === undefined ? null : next);
+
+import { ListNode } from './Node'
+
+export default class LinkList extends ListNode {
+    constructor() {
+        super();
+
+        this.size = 0;
+        this.hair = new ListNode();//头结点,并非第一个节点
+        return this;
+    }
+    /**
+     * 获取头指针
+     */
+    getHead() {
+        return this.hair.next;
     }
     /**
      * 头插法
      * @param  {...any} args 
      * @returns {ListNode}
      */
-    LinkListInitByHeadInsert(...args) {
-        const head = new ListNode();
-        let p = head;
+    InitByHeadInsert(...args) {
+        let p = this.hair, tmp, node;
         args.forEach(item => {
-            let node = new ListNode(item)
-            let tmp = p.next
+            node = new ListNode(item)
+            tmp = p.next
             p.next = node
             node.next = tmp
+            this.size++
         })
-        return head;
+        return this;
     }
     /**
      * 尾插法
      * @param  {...any} args
      * @returns {ListNode} 
      */
-    LinkListInitByTailInsert(...args) {
-        const head = new ListNode();
-        let tail = head;
+    InitByTailInsert(...args) {
+        let tail = this.hair;
         args.forEach(item => {
             tail.next = new ListNode(item, null)
             tail = tail.next
+            this.size++
         })
-        return head;
+        return this;
     }
     /**
      * 按序号查找节点
-     * @param {ListNode} head
      * @param {Integer} i 
      * @returns {ListNode}
      */
-    LinkListGetElem(head, i) {
-        if (head === null || i < 0) return null;
-        if (i === 0) return head;
+    GetElemByIndex(i) {
+        if (this.isEmpty() || i < 0 || i >= this.size) return null;
 
-        let p = head;
+        let p = this.getHead();
         let j = 0;
         while (p && j < i) {
             p = p.next
@@ -57,14 +64,13 @@ export class ListNode {
 
     /**
      * 按值查找节点
-     * @param {ListNode} head
      * @param {any} value 
      * @returns {ListNode}
      */
-    LinkListLocateElem(head, value) {
-        if (head === null) return null;
+    GetElemByValue(value) {
+        if (this.isEmpty()) return null;
 
-        let p = head ? head.next : null;
+        let p = this.getHead();
         while (p && p.value !== value) {
             p = p.next
         }
@@ -76,12 +82,13 @@ export class ListNode {
      * @param {any} value
      * @returns {Boolean} 
      */
-    ListNodeInsertAfter(node, value) {
+    InsertAfter(node, value) {
         if (node === null) return false;
         const p = new ListNode(value)
         const tmp = node.next
         node.next = p
         p.next = tmp
+        this.size++;
         return true
     }
     /**
@@ -89,7 +96,7 @@ export class ListNode {
      * @param {ListNode} node
      * @returns {Boolean} 
      */
-    ListNodeInsertBefore(node, value) {
+    InsertBefore(node, value) {
         if (node === null) return false;
         //交换数据
         const p = new ListNode(node.value);
@@ -98,30 +105,33 @@ export class ListNode {
         //插入
         p.next = node.next
         node.next = p
+
+        this.size++;
         return true
     }
     /**
-     * @todo
-     * 删除给定节点
-     * 与前插操作类似，时间复杂度O(1)
+     * 删除给定节点，与前插操作类似
+     * 投机取巧，将后一个节点的值拷过来，删除后一个节点
      * @param {ListNode} node
      * @returns {Boolean} 
      */
-    ListNodeDelete(node, value) {
+    DeleteCurrNode(node) {
         if (node === null) return false;
-
+        node.next && (node.value = node.next.value);
+        node.next = node.next ? node.next.next : null;
+        this.size--;
+        return true;
     }
 
     /**
      * 删除位置i处的节点
-     * @param {ListNode} head
      * @param {Integer} i 
      * @returns {ListNode}
      */
-    LinkListDelete(head, i) {
-        if (head === null) return null;
-        if (i <= 0) return null;
-        let p = head
+    DeleteByIndex(i) {
+        if (this.isEmpty() || i < 0 || i >= this.size) return null;
+
+        let p = this.getHead();
         let j = 0
         while (p && j < i - 1) {
             p = p.next
@@ -130,48 +140,57 @@ export class ListNode {
         if (p) {
             let ret = p.next;
             p.next = ret ? ret.next : null;
+            this.size--;
             return ret
         } else {
             return null
         }
-
     }
     /**
-     * @todo
      * 位置i处插入节点
-     * @param {ListNode} head
      * @param {Integer} i 
      * @param {any} value
      * @returns {Boolean}
      */
-    LinkListInsert(head, i, value) {
-
+    InsertByIndex(i, value) {
+        if (this.isEmpty() || i < 0 || i >= this.size) return false;
+        let p = this.hair;
+        let j = 0
+        while (p && j < i) {
+            p = p.next
+            j++
+        }
+        const node = new ListNode(value);
+        node.next = p.next;
+        p.next = node;
+        this.size++;
+        return true;
     }
     /**
      * 求表长
-     * @param {ListNode} head
+     * @returns {Boolean}
      */
-    LinkListSize(head) {
-        let ret = 0
-        let p = head ? head.next : null;
-        while (p) {
-            p = p.next
-            ret++
-        }
-        return ret
+    LinkListSize() {
+        return this.size
+    }
+    /**
+     * 判空
+     * @returns {Boolean}
+     */
+    isEmpty() {
+        return this.size === 0
     }
     /**
      * 打印链表
-     * @param {ListNode} head
      */
-    LinkListPrint(head) {
+    toString() {
         let ret = ''
-        let p = head ? head.next : null;
+        let p = this.getHead();
         while (p) {
             ret += ret ? ` -> ${p.value}` : p.value
             p = p.next
         }
-        console.log(ret)
+        return ret
     }
 }
 
