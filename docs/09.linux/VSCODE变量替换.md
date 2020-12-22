@@ -10,6 +10,9 @@ tags:
 location: HangZhou
 ---
 
+# Heading
+[[toc]]
+
 ## 基础
 1. 查找 Ctrl+F 
 2. 查找替换 Ctrl+H 

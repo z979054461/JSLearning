@@ -10,6 +10,9 @@ tags:
 location: HangZhou
 ---
 
+# Heading
+[[toc]]
+
 ## 概述
 与大多数全局对象不同，Reflect不是一个构造函数。你不能将其与一个new运算符一起使用，或者将Reflect对象作为一个函数来调用。Reflect的所有属性和方法都是静态的（就像Math对象）。设计目的：
 - 将Object对象的一些明显属于语言内部的方法（比如Object.defineProperty），放到Reflect对象上。

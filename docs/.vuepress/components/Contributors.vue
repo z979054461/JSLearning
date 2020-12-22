@@ -41,7 +41,8 @@ export default {
   },
   methods: {
     getContributors () {
-      require('whatwg-fetch')
+      //npm i whatwg-fetch --save-dev
+      // require('whatwg-fetch')
       const { user, repo } = this
       const uri = `https://api.github.com/repos/${user}/${repo}/contributors`
 

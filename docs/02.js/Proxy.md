@@ -11,6 +11,9 @@ tags:
 location: HangZhou
 ---
 
+# Heading
+[[toc]]
+
 # Proxy
 
 Proxy 实际上重载（overload）了点运算符，即用自己的定义覆盖了语言的原始定义。

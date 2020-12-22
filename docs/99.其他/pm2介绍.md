@@ -10,6 +10,9 @@ tags:
 location: HangZhou
 ---
 
+# Heading
+[[toc]]
+
  ## 安装 node 
 - 下载  `wget https://nodejs.org/dist/v12.19.0/node-v12.19.0-linux-x64.tar.xz`
 - 解压  `tar xvf node-v12.19.0-linux-x64.tar.xz`
@@ -19,6 +22,7 @@ location: HangZhou
  `npm i -g pm2`
   创建软链接 `ln -s /home/yuetx/node-v12.19.0-linux-x64/bin/pm2 /usr/local/bin/pm2`
  ## 启动工程
+// #region test2
   ```javascript
  - 解压front.zip 生成文件夹front
  - 启动命令(xxxx为端口)：
@@ -26,5 +30,6 @@ location: HangZhou
  - 查看当前服务 `pm2 ls`
  - 访问 http://127.0.00.1:xxxx
   ```
+// #endregion test2
 
 ![](/pm2.png)

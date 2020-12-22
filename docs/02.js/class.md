@@ -10,6 +10,9 @@ tags:
 location: HangZhou
 ---
 
+# Heading
+[[toc]]
+
 # ES6 class
 
 ## 静态方法、静态属性、私有方法、私有属性

@@ -10,6 +10,9 @@ tags:
 location: HangZhou
 ---
 
+# Heading
+[[toc]]
+
 ```sql
 ALTER TABLE "TEST" 
 ADD ("SCORE1" NUMBER(255,0)) --不设置

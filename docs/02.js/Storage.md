@@ -11,6 +11,9 @@ tags:
 location: HangZhou
 ---
 
+# Heading
+[[toc]]
+
 
 Fired when a storage area (localStorage or sessionStorage) has been modified in the context of another document.
 Also available via the onstorage 属性。
