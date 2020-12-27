@@ -1,6 +1,8 @@
 /**
  * 链式栈
  */
+
+import { ListNode } from './Node'
 class LinkStack {
     constructor() {
         this.top = new ListNode();
@@ -28,13 +30,6 @@ class LinkStack {
     }
     GetTop() {
         return this.StackEmpty() ? undefined : this.top.next.value
-    }
-}
-
-class ListNode {
-    constructor(value, next) {
-        this.value = (value === undefined ? 0 : value);
-        this.next = (next === undefined ? null : next);
     }
 }
 
