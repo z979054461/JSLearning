@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vuex"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <p>{{$store.state.count}}</p>
+        <p>{{count}}</p>
+        <p>{{countAlias}}</p>
+        <p>{{countPlusLocalState}}</p>
+        <input v-model='incrementValue' type="text">
+        <button @click='increment'>
+            increment
+        </button>
+    </div>
+    <script type='module'>
+        const store = new Vuex.Store({
+            state: {
+                count: 0,
+                todos: [
+                    { id: 1, text: '...', done: true },
+                    { id: 2, text: '...', done: false }
+                ]
+            },
+            getters: {
+                doneTodos: state => {
+                    return state.todos.filter(todo => todo.done)
+                },
+                doneTodosCount: (state, getters) => {
+                    return getters.doneTodos.length
+                },
+                getTodoById: (state) => (id) => {
+                    return state.todos.find(todo => todo.id === id)
+                }
+            },
+            mutations: {
+                increment(state, payload) {
+                    state.count += payload.amount
+                }
+            },
+            actions:{
+                increment ({ commit }) {
+                    commit('increment')
+                }
+            }
+        })
+        window.globalVue = new Vue({
+            el: '#app',
+            store,
+            methods: {
+                increment() {
+                    store.commit('increment', { amount: +this.incrementValue })
+                    //对象风格
+                    // store.commit({
+                    //     type: 'increment',
+                    //     amount: 10
+                    // })
+                    console.log('method increment',store.state.count)
+                }
+            },
+            data() {
+                return {
+                    localCount: 123,
+                    incrementValue: 1,
+                }
+            },
+            computed: {
+                ...Vuex.mapState({
+                    // 箭头函数可使代码更简练
+                    count: state => state.count,
+
+                    // 传字符串参数 'count' 等同于 `state => state.count`
+                    countAlias: 'count',
+
+                    // 为了能够使用 `this` 获取局部状态，必须使用常规函数
+                    countPlusLocalState(state) {
+                        return state.count + this.localCount
+                    }
+                }),
+                ...Vuex.mapGetters([
+                    'doneTodosCount',
+                    'getTodoById',
+                ]),
+                ...Vuex.mapGetters({
+                    doneCount: 'doneTodosCount'
+                })
+            },
+            created() {
+                console.log(store.state.todos)
+                console.log(store.getters.doneTodos)
+                console.log(store.getters.getTodoById(2))
+                console.log(this.doneTodosCount, this.doneCount)
+            }
+        });
+    </script>
+</body>
+
+</html>

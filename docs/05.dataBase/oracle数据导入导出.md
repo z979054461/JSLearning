@@ -41,12 +41,16 @@ location: HangZhou
   `expdp user/passwd@instance file=./XXX.dmp tables=tableName,tableName2`
   - 按条件导出
   `expdp user/passwd@instance tables=table1='where number=1234' file=./XXX.dmp`
+  - 部分表导出（%模糊匹配）
+  `expdp user/passwd@instance tables=%XXX% file=./XXX.dmp`
 
 ## impdb
   - 全量导入
   `impdp user/passwd@instance file=./XXX.dmp full=y logfile=test.log`
   - 同名用户导入
   `impdp A/passwd schemas=A file=./XXX.dmp logfile=impdp.log;　`
+  - 部分表导入
+  `impdp user/passwd@instance tables=%XXX% file=./XXX.dmp`
 
 
 https://www.cnblogs.com/chinas/p/8300955.html#_label3

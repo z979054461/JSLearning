@@ -163,5 +163,14 @@ pie
 ```mermaid
 Coming soon!
 ```
-### iframe
+## iframe
 <iframe style="height: -webkit-fill-available;width: -webkit-fill-available;" src="//player.bilibili.com/player.html?aid=457634965&bvid=BV185411L7Vj&cid=253515113&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+## 临时
+https://blog.csdn.net/kuangshp128/article/details/98062662
+
+https://github.com/Kononnable/typeorm-model-generator
+
+https://blog.csdn.net/yehuozhili/article/details/108435028
+
+https://www.jianshu.com/p/1c4650e3718a
