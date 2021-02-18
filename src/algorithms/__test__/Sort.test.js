@@ -1,4 +1,8 @@
-import { InsertSort, BinaryInsertSort } from '../src/Sort'
+import {
+    InsertSort,
+    BinaryInsertSort,
+    ShellSort,
+} from '../src/Sort'
 
 let arr, n;
 let aws = [1, 2, 2, 4, 5, 5, 5, 7, 24, 26, 34, 34, 51, 126, 235, 326, 452, 523, 562, 1234];
@@ -13,5 +17,9 @@ describe('Sort TestCases', () => {
 
     test('BinaryInsertSort', () => {
         expect(BinaryInsertSort(arr, n)).toStrictEqual(aws)
+    })
+
+    test('ShellSort', () => {
+        expect(ShellSort(arr, n)).toStrictEqual(aws)
     })
 })

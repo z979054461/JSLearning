@@ -1,3 +1,4 @@
+// #region InsertSort
 /**
  * 直接插入排序
  * @param {*} arr 
@@ -18,7 +19,9 @@ export function InsertSort(arr = [], n = 0) {
     }
     return arr
 }
+// #endregion InsertSort
 
+// #region BinaryInsertSort
 /**
  * 折半插入排序
  * @param {*} arr 
@@ -44,3 +47,30 @@ export function BinaryInsertSort(arr = [], n = 0) {
     }
     return arr
 }
+// #endregion BinaryInsertSort
+
+// #region ShellSort
+/**
+ * 希尔排序
+ * @param {*} arr 
+ * @param {*} n 
+ */
+export function ShellSort(arr = [], n = 0) {
+    let gap = ~~(n / 2), j, tmp;
+    while (gap >= 1) {
+        for (let i = gap; i < n; i++) {
+            if (arr[i] < arr[i - gap]) {
+                tmp = arr[i]
+                j = i
+                while (j >= 0 && tmp < arr[j - gap]) {
+                    arr[j] = arr[j - gap]
+                    j -= gap
+                }
+                arr[j] = tmp
+            }
+        }
+        gap = ~~(gap / 2)
+    }
+    return arr;
+}
+// #endregion ShellSort
