@@ -8,18 +8,18 @@ location: HangZhou
 
 # Heading
 [[toc]]
-源码版本vue：2.6.10
+源码版本vue：`2.6.10`
 
-- 广义上，diff 算法的本质是找出两个对象之间的差异，如linux的diff命令，git的diff命令，Beyond Compare比较等
-- patch即为打补丁，将虚拟dom节点Vnode的变化体现在真实dom中
-- vue中一边diff一边patch，比diff结束再patch少一次树的遍历
-- vue-diff算法的核心是子节点数组对比（updateChildren）,思路是通过 首尾两端交叉对比
-- key主要用于节点复用，在patch过程中可以替代遍历，提升性能（updateChildren - createKeyToOldIdx）
+- 广义上，diff 算法的本质是找出**两个对象之间的差异**，如`linux的diff命令`，`git的diff命令`，`Beyond Compare`比较等
+- patch即为**打补丁**，将虚拟dom节点Vnode的变化体现在真实dom中
+- vue中**一边diff一边patch**，比diff结束再patch少一次树的遍历
+- vue-diff算法的核心是**子节点数组对比**（updateChildren）,思路是通过 `首尾两端交叉对比`
+- key主要用于**节点复用**，在patch过程中可以替代遍历，提升性能（updateChildren - createKeyToOldIdx）
 
 
 ## patch算法
-patch.js 暴露一个createPatchFunction方法，返回patch函数。
-。
+patch.js 暴露一个createPatchFunction方法，返回patch函数  
+
 ```js
 export function createPatchFunction (backend) {
   //省略若干……
