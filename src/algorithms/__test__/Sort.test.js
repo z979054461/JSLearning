@@ -2,6 +2,7 @@ import {
     InsertSort,
     BinaryInsertSort,
     ShellSort,
+    BubbleSort,
 } from '../src/Sort'
 
 let arr, n;
@@ -21,5 +22,9 @@ describe('Sort TestCases', () => {
 
     test('ShellSort', () => {
         expect(ShellSort(arr, n)).toStrictEqual(aws)
+    })
+
+    test('BubbleSort', () => {
+        expect(BubbleSort(arr, n)).toStrictEqual(aws)
     })
 })
