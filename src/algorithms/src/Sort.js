@@ -1,3 +1,11 @@
+function Swap(arr, i, j) {
+    // [arr[j],arr[i]] = [arr[i],arr[j]]
+    // 解构交换元素可能效率不高
+    const tmp = arr[j]
+    arr[j] = arr[i]
+    arr[i] = tmp
+}
+
 // #region InsertSort
 /**
  * 直接插入排序
@@ -83,17 +91,13 @@ export function ShellSort(arr = [], n = 0) {
  * @param {*} n 
  */
 export function BubbleSort(arr = [], n = 0) {
-    let swapFlag, tmp;
+    let swapFlag;
     for (let i = 0; i < n; i++) {
         swapFlag = false;
         for (let j = 0; j <= n - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
                 swapFlag = true;
-                // [arr[j],arr[j+1]] = [arr[j+1],arr[j]]
-                // 解构交换元素可能效率不高
-                tmp = arr[j]
-                arr[j] = arr[j + 1]
-                arr[j + 1] = tmp
+                Swap(arr, j, j + 1);
             }
         }
         if (!swapFlag) break;//本趟无交换说明已经有序
@@ -132,3 +136,24 @@ export function QuickSort(arr = [], n = 0) {
     return arr
 }
 // #endregion QuickSort
+
+
+// #region SelectionSort
+/**
+ * 选择排序
+ * @param {*} arr 
+ * @param {*} n 
+ */
+export function SelectionSort(arr = [], n = 0) {
+    let i, j, min;
+    for (i = 0; i < n; i++) {
+        min = i
+        for (j = i + 1; j < n; j++) {
+            if (arr[j] < arr[min]) min = j;
+        }
+        if (min !== i) Swap(arr, i, min);
+    }
+    return arr
+}
+// #endregion SelectionSort
+

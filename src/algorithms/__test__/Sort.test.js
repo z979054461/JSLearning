@@ -4,6 +4,7 @@ import {
     ShellSort,
     BubbleSort,
     QuickSort,
+    SelectionSort,
 } from '../src/Sort'
 
 let arr, n;
@@ -31,5 +32,9 @@ describe('Sort TestCases', () => {
 
     test('QuickSort', () => {
         expect(QuickSort(arr, n)).toStrictEqual(aws)
+    })
+
+    test('SelectionSort', () => {
+        expect(SelectionSort(arr, n)).toStrictEqual(aws)
     })
 })
