@@ -101,3 +101,34 @@ export function BubbleSort(arr = [], n = 0) {
     return arr;
 }
 // #endregion BubbleSort
+
+
+// #region QuickSort
+/**
+ * 快速排序
+ * @param {*} arr 
+ * @param {*} n 
+ */
+export function QuickSort(arr = [], n = 0) {
+    const partition = (arr, low, high) => {//一趟划分
+        let pivot = arr[low]//基准取第一个元素
+        while (low < high) {
+            while (low < high && arr[high] >= pivot) high--;
+            arr[low] = arr[high]//比pivot小的元素交换到左边
+            while (low < high && arr[low] <= pivot) low++;
+            arr[high] = arr[low]//比pivot大的元素交换到右边
+        }
+        arr[low] = pivot
+        return low
+    }
+    const QSort = (arr, low, high) => {
+        if (low < high) {
+            let pivotIdx = partition(arr, low, high)
+            QSort(arr, 0, pivotIdx - 1);
+            QSort(arr, pivotIdx + 1, high);
+        }
+    }
+    QSort(arr, 0, n - 1)
+    return arr
+}
+// #endregion QuickSort

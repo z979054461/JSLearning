@@ -3,6 +3,7 @@ import {
     BinaryInsertSort,
     ShellSort,
     BubbleSort,
+    QuickSort,
 } from '../src/Sort'
 
 let arr, n;
@@ -26,5 +27,9 @@ describe('Sort TestCases', () => {
 
     test('BubbleSort', () => {
         expect(BubbleSort(arr, n)).toStrictEqual(aws)
+    })
+
+    test('QuickSort', () => {
+        expect(QuickSort(arr, n)).toStrictEqual(aws)
     })
 })
