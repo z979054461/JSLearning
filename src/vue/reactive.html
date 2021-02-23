@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input class="inp-text" type="text">
+    <div class="text-box"></div>
+    <script type='module'>
+        let obj = {};
+        Object.defineProperty(obj, 'name', {
+            set: function (newValue) {
+                console.log('setter', newValue)
+                document.querySelector('.text-box').innerHTML = `${newValue}`.split('').reverse().join('');
+                document.querySelector('.inp-text').value = newValue;
+            },
+            get: function () {
+                console.log('getter')
+            }
+        })
+
+        document.querySelector('.inp-text').addEventListener('keyup', function (e) {
+            obj.name = e.target.value;
+        }, false);
+        globalThis.obj = obj
+    </script>
+</body>
+
+</html>
