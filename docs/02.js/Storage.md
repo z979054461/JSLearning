@@ -20,16 +20,16 @@ Also available via the onstorage 属性。
 - Window.onstorage
     Called when there is a change in session storage or local storage. See storage event
 - StorageEvent
-    Property	Type	Description
-    target 只读	EventTarget	事件目标(DOM 树中的最大目标)
-    type 只读	DOMString	事件的类型
-    bubbles 只读	Boolean	事件通常是否会出现冒泡
-    cancelable 只读	Boolean	事件是否可取消
-    key 只读	DOMString (string)	键更改时
-    oldValue 只读	DOMString (string)	正在更改键的旧值
-    newValue 只读	DOMString (string)	正在更改键的新值
-    url 只读	DOMString (string)	键更改的文档的地址
-    storageArea 只读	Storage	受影响的存储对象
+    - Property	Type	Description
+    - target 只读	EventTarget	事件目标(DOM 树中的最大目标)
+    - type 只读	DOMString	事件的类型
+    - bubbles 只读	Boolean	事件通常是否会出现冒泡
+    - cancelable 只读	Boolean	事件是否可取消
+    - key 只读	DOMString (string)	键更改时
+    - oldValue 只读	DOMString (string)	正在更改键的旧值
+    - newValue 只读	DOMString (string)	正在更改键的新值
+    - url 只读	DOMString (string)	键更改的文档的地址
+    - storageArea 只读	Storage	受影响的存储对象
 
 ## sessionStorage 
 sessionStorage 属性允许你访问一个 session Storage 对象。它与 localStorage 相似，不同之处在于 localStorage 里面存储的数据没有过期时间设置，而存储在 sessionStorage 里面的数据在页面会话结束时会被清除。页面会话在浏览器打开期间一直保持，并且重新加载或恢复页面仍会保持原来的页面会话。`在新标签或窗口打开一个页面时会在顶级浏览上下文中初始化一个新的会话`，这点和 session cookies 的运行方式不同。
