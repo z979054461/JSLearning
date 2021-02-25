@@ -22,6 +22,8 @@ location: HangZhou
 - [ ] 数据结构 - 链表实现（双链表、循环链表）
 - [ ] 重绘和回流
 - [ ] 0.5px的线
+- [ ] HTTP1.0、HTTP1.1 和 HTTP2.0 的区别
+- [ ] script标签 defer属性和async属性
 
 ## 自定义容器
 ::: tip
