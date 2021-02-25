@@ -10,6 +10,7 @@ location: HangZhou
 # Heading
 [[toc]]
 源码版本vue：`2.6.10`
+参考链接：https://segmentfault.com/a/1190000018659584
 
 ## 简易双向绑定
 
