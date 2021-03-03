@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id='main1' type="text">
+    <input id='main2' type="text">
+    <input id= 'worker' type="text">
+    <script>
+        const myWorker = new Worker('./worker.js');
+        const main1 = document.getElementById('main1')
+        const main2 = document.getElementById('main2')
+        const worker = document.getElementById('worker')
+        myWorker.onmessage = function (e) {
+            console.log('Message received from worker', e);
+            worker.value = e.data
+        }
+        main1.addEventListener('change',e => Post(e.target.value,main2.value))
+        main2.addEventListener('change',e => Post(main1.value,e.target.value))
+
+        function Post(a,b){
+            myWorker.postMessage([+a,+b]);
+            console.log('Main postMessage:',[+a,+b])
+        }
+    </script>
+</body>
+
+</html>
