@@ -39,6 +39,7 @@ location: HangZhou
 - [x] 前端性能优化  
 - [ ] TransForm
 - [ ] Flex
+- [ ] 闭包
 - [ ] vue
   1. Vue 响应式原理
   2. computed 的实现原理
