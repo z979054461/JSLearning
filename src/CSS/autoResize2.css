@@ -1,0 +1,13 @@
+.box{
+    display: flex;
+}
+.a{
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+}
+.b{
+    height: 200px;
+    flex: 1;
+    background-color: greenyellow;
+}

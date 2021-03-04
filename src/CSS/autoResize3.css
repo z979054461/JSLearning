@@ -1,0 +1,12 @@
+.a{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+}
+.b{
+    display: inline-block;
+    height: 200px;
+    width: calc( 100% - 205px );
+    background-color: greenyellow;
+}
