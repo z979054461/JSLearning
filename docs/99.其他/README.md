@@ -22,7 +22,7 @@ location: HangZhou
 - [ ] 数据结构 - 链表实现（双链表、循环链表）
 - [ ] 0.5px的线
 - [ ] HTTP1.0、HTTP1.1 和 HTTP2.0 的区别
-- [ ] script标签 defer属性和async属性
+- [x] script标签 defer属性和async属性
 - [ ] nginx 性能高的原因
 - [ ] nginx upstream
 - [ ] png8 png24
