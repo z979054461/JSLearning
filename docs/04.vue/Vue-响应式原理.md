@@ -14,7 +14,7 @@ location: HangZhou
 
 ## 简易双向绑定
 
-<<< @/src/algorithms/src/vue/reactive.html
+<<< @/src/vue/reactive.html
 
 ## 核心思想
 **核心思想：Object.defineProperty(obj, key, {set, get})**
