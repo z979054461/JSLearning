@@ -20,7 +20,6 @@ location: HangZhou
 - [ ] 数据结构-图
 - [ ] webpack
 - [ ] 数据结构 - 链表实现（双链表、循环链表）
-- [ ] ***重绘和回流
 - [ ] 0.5px的线
 - [ ] HTTP1.0、HTTP1.1 和 HTTP2.0 的区别
 - [ ] script标签 defer属性和async属性
@@ -30,14 +29,16 @@ location: HangZhou
 - [ ] JS的垃圾回收
 - [ ] CSS实现两列布局，一列固定宽度，一列宽度自适应方法
 - [ ] css居中的几种方法
-- [ ] 重绘和重排
+- [x] 重绘和重排
 - [ ] requestAnimationFrame()
 - [ ] 原生fetch
 - [ ] 垂直居中的实现方法
 - [ ] call apply bind
 - [ ] 最有成就感的一件事
 - [ ] 两个树比较的时间复杂度
-- [ ] 前端性能优化  
+- [x] 前端性能优化  
+- [ ] TransForm
+- [ ] Flex
 - [ ] vue
   1. Vue 响应式原理
   2. computed 的实现原理
