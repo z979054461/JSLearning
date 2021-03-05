@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='some-element-you-want-to-animate' style="height: 100px; width: 100px; background-color: red;"></div>
+    <script>
+        const element = document.getElementById("some-element-you-want-to-animate");
+        let start;
+
+        let distence = 0,//到左边界的距离
+            direction = 1;//方向 1-向右 0-向左
+        const stepPx = 3;//步长 每一帧增加多少像素
+        function step(timestamp) {
+            if (start === undefined) start = timestamp;
+            const elapsed = timestamp - start;
+
+            distence = direction ? distence + stepPx : distence - stepPx;
+            if (distence < 0 || distence > 800)
+                direction = !direction
+
+            element.style.transform = `translateX(${distence}px)`
+
+            // if (elapsed < 2000) {
+            // 在两秒后停止动画
+            window.requestAnimationFrame(step);
+            // }
+        }
+
+        window.requestAnimationFrame(step);
+    </script>
+</body>
+
+</html>

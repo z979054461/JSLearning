@@ -28,11 +28,10 @@ location: HangZhou
 - [ ] png8 png24
 - [ ] JS的垃圾回收
 - [x] CSS实现两列布局，一列固定宽度，一列宽度自适应方法
-- [ ] css居中的几种方法
 - [x] 重绘和重排
-- [ ] requestAnimationFrame()
+- [x] requestAnimationFrame()
 - [ ] 原生fetch
-- [ ] 垂直居中的实现方法
+- [x] 垂直居中的实现方法
 - [ ] call apply bind
 - [ ] 最有成就感的一件事
 - [ ] 两个树比较的时间复杂度
