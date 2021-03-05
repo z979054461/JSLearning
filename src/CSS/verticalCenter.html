@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+ 
+	<head>
+		<meta charset="UTF-8">
+		<!-- 引入ElementUI  CDN -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<title>水平垂直居中展示</title>
+	</head>
+	 <style type="text/css">
+		#app{
+			 width: 100%;
+			 margin: 50px auto;
+			 /* 设置栅格布局 ， auto-fill 关键字，表示每列宽度300px,然后自动填充,直到容器不能放置更多的列*/
+			 display: grid;
+			 grid-template-columns: repeat(auto-fill, 300px);
+		}
+		.section{
+			margin-left: 20px;
+			margin-right: 20px;
+			margin-top: 50px;
+			height: 300px;
+			border: 1px solid;
+		}
+	
+		.items{
+			background-color: coral;
+			border-radius: 5px;
+			width: 100px;
+			height: 100px;
+			overflow: hidden;
+			text-align: center;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		
+		/* 	方法一:
+			绝对定位方法：不确定当前div的宽度和高度，采用 transform: translate(-50%,-50%); 
+			当前div的父级添加相对定位（position: relative;） */
+		.section-one{
+			position: relative;
+		}
+		.items-one{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			/* translate()函数是css3的新特性.在不知道自身宽高的情况下，可以利用它来进行水平垂直居中 */
+			transform: translate(-50%,-50%);
+			background-color: red;
+		}
+		
+		/* 方法二:
+			绝对定位方法:确定当前div的宽度和高度,采用margin值为当前div宽度高度一半的负值 */
+		.section-two{
+			position: relative;
+		}
+		.items-two{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -50px;
+			margin-top: -50px;
+			background-color: coral;
+		}
+		
+		/* 方法三:
+			绝对定位方法:绝对定位下top left right bottom 都设置0 ,magin:auto;*/
+		.section-three{
+			position: relative;
+		}
+		.items-three{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			background-color: yellow;
+		}
+		
+		/* 方法四: 
+			flex布局:父元素添加flex样式 ,父元素的宽高要设置*/
+		.section-four{
+			display: flex;
+			justify-content: center;	/* 弹性布局的左右居中对齐 */
+			align-items: center;		/*弹性布局的垂直居中对齐*/
+		}
+		.items-four{
+			background-color: greenyellow;
+		}
+		
+		/* 方法五:
+			　table-cell实现文字内容水平垂直居中 , 设置好之后margin属性失效 */
+		.section-five{
+			position: relative;
+		}
+		.items-five{
+			background-color: #6495ED;
+			/* 文字居中展示 */
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			position: relative;
+			top: 100px;
+			left: 75px;
+		}
+		
+		/* 	方法六 ：
+			父元素设置:grid栅格布局,子元素  align-self: center; justify-self: center;  居中展示 */
+		.section-six{
+			 display: grid;
+		}
+		.items-six{
+			align-self: center;
+			justify-self: center;
+		}
+		
+		/* 方法七
+			父元素设置:grid栅格布局,align-content: center;justify-content: center; 居中展示*/
+		.section-seven{
+			 display: grid;
+			 align-content: center;
+			 justify-content: center;
+		}
+		.items-seven{
+			background-color: powderblue;
+		}
+		
+		/* 方法八：
+			父元素设置:flex布局,子元素上使用：margin:auto; 居中展示*/
+		.section-eight{
+			 display: flex;
+		}
+		.items-eight{
+			background-color: crimson;
+			margin: auto;
+		}
+		/* 方法九：
+			父元素设置:flex布局,子元素上使用：margin:auto; 居中展示*/
+		.section-nine{
+			 display: table;
+		}
+		.items-nine{
+			display:table-cell;
+			vertical-align: middle;
+			background-color:darkcyan;
+		}
+		
+		/* 栅格布局小方块 */
+		.section-ten{
+			display: grid;
+			    grid-template-rows: 1fr 1fr 1fr;
+			        grid-template-columns: 1fr 1fr 1fr;
+		}
+		.grid-item{
+			text-align: center;
+			line-height: 100px;
+			background-color: #15231F;
+			font-weight: bold;
+			color: #FFFFFF;
+		}
+		.grid-item:nth-child(2n){
+			background-color: #FFFFFF;
+			color: #15231F;
+		}
+	</style> 
+ 
+	<body>
+		<div id="app">
+			<div class="section section-one">
+				<div class="items items-one">1</div>
+			</div>
+			<div class="section section-two">
+				<div class="items items-two">2</div>
+			</div>
+			<div class="section section-three">
+				<div class="items items-three">3</div>
+			</div>
+			<div class="section section-four">
+				<div class="items items-four">4</div>
+			</div>
+			<div class="section section-five">
+				<div class="items items-five">
+					<p>123456</p>
+				</div>
+			</div>
+			<div class="section section-six">
+				<div class="items items-six">6</div>
+			</div>
+			<div class="section section-seven">
+				<div class="items items-seven">7</div>
+			</div>
+			<div class="section section-eight">
+				<div class="items items-eight">8</div>
+			</div>
+			<div class="section section-nine">
+				<div class="items items-nine">9</div>
+			</div>
+			<div class="section section-ten">
+				<div class="grid-item">1</div>
+				<div class="grid-item">2</div>
+				<div class="grid-item">3</div>
+				<div class="grid-item">4</div>
+				<div class="grid-item">5</div>
+				<div class="grid-item">6</div>
+				<div class="grid-item">7</div>
+				<div class="grid-item">8</div>
+				<div class="grid-item">9</div>
+			</div>
+		</div>
+ 
+	</body>
+	<!-- 引入vue组件库 -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+	<!-- 引入ElementUI组件库 -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script>
+		//注册使用vue
+		var Vue = window.Vue;
+		var app = new Vue({
+			el: '#app',
+			data() {
+				return {
+					
+				}
+			},
+			methods: {
+			
+			}
+ 
+		})
+	</script>
+ 
+</html>

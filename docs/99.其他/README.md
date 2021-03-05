@@ -27,7 +27,7 @@ location: HangZhou
 - [ ] nginx upstream
 - [ ] png8 png24
 - [ ] JS的垃圾回收
-- [ ] CSS实现两列布局，一列固定宽度，一列宽度自适应方法
+- [x] CSS实现两列布局，一列固定宽度，一列宽度自适应方法
 - [ ] css居中的几种方法
 - [x] 重绘和重排
 - [ ] requestAnimationFrame()
@@ -38,7 +38,8 @@ location: HangZhou
 - [ ] 两个树比较的时间复杂度
 - [x] 前端性能优化  
 - [ ] TransForm
-- [ ] Flex
+- [ ] Flex弹性布局
+- [ ] Grid网格布局
 - [ ] 闭包
 - [ ] vue
   1. Vue 响应式原理
