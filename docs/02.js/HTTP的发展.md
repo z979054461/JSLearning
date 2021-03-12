@@ -47,10 +47,11 @@ GET /mypage.html
 响应也极其简单的：只包含响应文档本身。
 
 ::: tip
-
+```html
 <HTML>
 这是一个非常简单的HTML页面
 </HTML>
+```
 :::
 
 跟后来的版本不同，**HTTP/0.9 的响应内容并不包含 HTTP 头，这意味着只有 HTML 文件可以传送，无法传输其他类型的文件；也没有状态码或错误代码**：一旦出现问题，一个特殊的包含问题描述信息的 HTML 文件将被发回，供人们查看。
@@ -65,6 +66,7 @@ GET /mypage.html
 - 在新 HTTP 头的帮助下，_具备了传输除纯文本 HTML 文件以外其他类型文档的能力_（感谢 Content-Type 头）。
 
 ::: details 一个典型的请求看起来就像这样：
+```html
 GET /mypage.html HTTP/1.0
 User-Agent: NCSA_Mosaic/2.0 (Windows 3.1)
 
@@ -75,8 +77,9 @@ Content-Type: text/html
 
 <HTML>
 一个包含图片的页面
-  <IMG SRC="/myimage.gif">
+  <IMG SRC="/myimage.gif"/>
 </HTML>
+```
 :::
 
 ::: details 接下来是第二个连接，请求获取图片：
