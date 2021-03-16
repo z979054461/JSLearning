@@ -32,7 +32,7 @@ location: HangZhou
 - [x] requestAnimationFrame()
 - [ ] 原生fetch
 - [x] 垂直居中的实现方法
-- [ ] call apply bind
+- [x] call apply bind
 - [ ] 最有成就感的一件事
 - [ ] 两个树比较的时间复杂度
 - [x] 前端性能优化  
@@ -44,6 +44,7 @@ location: HangZhou
   - https://developer.mozilla.org/zh-CN/docs/Web/CSS/grid-template
   - http://www.ruanyifeng.com/blog/2020/08/five-css-layouts-in-one-line.html
 - [ ] 闭包
+  - [ ] https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/A_re-introduction_to_JavaScript
 - [ ] vue
   1. Vue 响应式原理
   2. computed 的实现原理
