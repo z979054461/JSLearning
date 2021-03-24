@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 
 
-class Clock extends React.Component {
+export default class Clock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -336,15 +336,15 @@ class SignUpDialog extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSignUp = this.handleSignUp.bind(this);
-    this.state = {login: ''};
+    this.state = { login: '' };
   }
 
   render() {
     return (
       <Dialog title="Mars Exploration Program"
-              message="How should we refer to you?">
+        message="How should we refer to you?">
         <input value={this.state.login}
-               onChange={this.handleChange} />
+          onChange={this.handleChange} />
         <button onClick={this.handleSignUp}>
           Sign Me Up!
         </button>
@@ -353,22 +353,24 @@ class SignUpDialog extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({login: e.target.value});
+    this.setState({ login: e.target.value });
   }
 
   handleSignUp() {
     alert(`Welcome aboard, ${this.state.login}!`);
   }
 }
+
+
 ReactDOM.render(
-  // <App/>,
-  //   <LoginControl />,
+  // <App />,
+  <LoginControl />,
   // <Mailbox unreadMessages={messages} />,
-  //   <Page />,
-  //   <ListItem/>,
-  //   <NameForm />,
-  //   <Reservation />,
+  // <Page />,
+  // <ListItem />,
+  // <NameForm />,
+  // <Reservation />,
   // <WelcomeDialog />,
-  <SignUpDialog />,
+  // <SignUpDialog />,
   document.getElementById('root')
 );
