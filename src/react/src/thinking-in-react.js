@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 import './thinking-in-react.css';
 
 const data = [
@@ -10,7 +10,7 @@ const data = [
     { category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5" },
     { category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7" }
 ];
-class App extends React.Component {
+export default class App extends React.Component {
     render() {
         return <FilterableProductTable data={data} />
     }
@@ -22,7 +22,7 @@ const groupBy = arr => {
         return acc
     }, {})
 }
-export default class FilterableProductTable extends React.Component {
+class FilterableProductTable extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -106,7 +106,7 @@ class ProductRow extends React.Component {
 
 
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root'),
-)
+// ReactDOM.render(
+//     <App />,
+//     document.getElementById('root'),
+// )

@@ -1,9 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 
 
+export default function App() {
+  return (
+    <>
+      <Clock />
+      <LoginControl />,
+      <Mailbox unreadMessages={messages} />,
+      <Page />,
+      <ListItem />,
+      <NameForm />,
+      <Reservation />,
+      <WelcomeDialog />,
+      <SignUpDialog />,
+      <FancyButton />,
+    </>)
+}
 
-export default class Clock extends React.Component {
+class Clock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,14 +48,8 @@ export default class Clock extends React.Component {
     );
   }
 }
-function App() {
-  return (
-    <div>
-      <Clock />
-      <Clock />
-      <Clock />
-    </div>)
-}
+
+
 
 
 
@@ -363,29 +372,15 @@ class SignUpDialog extends React.Component {
 
 
 //TODO  这个Refs转发不起作用……
-// const FancyButton = React.forwardRef((props, ref) => (
-//   <button ref={ref} className="FancyButton">
-//     {props.children}
-//   </button>
-// ));
+const FancyButton = React.forwardRef((props, ref) => (
+  <button ref={ref} className="FancyButton">
+    {props.children}
+  </button>
+));
 
-// // 你可以直接获取 DOM button 的 ref：
-// const ref = React.createRef();
-// <FancyButton ref={ref}>Click me!</FancyButton>;
-// setTimeout(() => window.refTest = ref,3000)
+// 你可以直接获取 DOM button 的 ref：
+const ref = React.createRef();
+<FancyButton ref={ref}>Click me!</FancyButton>;
+setTimeout(() => window.refTest = ref, 3000)
 
 
-
-ReactDOM.render(
-  // <App />,
-  // <LoginControl />,
-  // <Mailbox unreadMessages={messages} />,
-  // <Page />,
-  // <ListItem />,
-  // <NameForm />,
-  // <Reservation />,
-  // <WelcomeDialog />,
-  // <SignUpDialog />,
-  // <FancyButton />,
-  document.getElementById('root')
-);

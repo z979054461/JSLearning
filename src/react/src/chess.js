@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import './chess.css';
 
 // class Square extends React.Component {
@@ -145,8 +145,8 @@ function calculateWinner(squares) {
 // ========================================
 
 // ReactDOM.render(<h1>Hello World</h1>,document.getElementById('root'))
-ReactDOM.render(
-  <Game />,
-  document.getElementById('root')
-);
+// ReactDOM.render(
+//   <Game />,
+//   document.getElementById('root')
+// );
 

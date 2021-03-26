@@ -2,7 +2,6 @@
 //https://react.docschina.org/docs/error-boundaries.html
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 class ErrorBoundary extends React.Component {
     constructor(props) {
@@ -88,7 +87,7 @@ export default function App() {
 
 
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-);
+// ReactDOM.render(
+//     <App />,
+//     document.getElementById('root')
+// );
