@@ -1,7 +1,15 @@
 import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import RouterHome from './routerHome'
+
+const RouterHome = function home() {
+    return (<ul>
+        <li><a href='/ThinkingInReact'>ThinkingInReact</a></li>
+        <li><a href='/Chess'>Chess</a></li>
+        <li><a href='/Demo'>Demo</a></li>
+        <li><a href='/errorBoundary'>errorBoundary</a></li>
+    </ul>)
+}
 //一般情况，会打包到这个文件中
 // import Chess from './chess'
 // import ThinkingInReact from './thinking-in-react'
@@ -12,8 +20,9 @@ import RouterHome from './routerHome'
 
 //在组件首次渲染时，自动导入
 const Chess = lazy(() => import('./chess'));
-const Demo = lazy(() => import('./demo'));
 const ThinkingInReact = lazy(() => import('./thinking-in-react.js'));
+const Demo = lazy(() => import('./demo'));
+const ErrorBoundary = lazy(() => import('./errorBoundary'));
 
 
 
@@ -25,6 +34,7 @@ const App = () => (
                     <Route path="/ThinkingInReact" component={ThinkingInReact} />
                     <Route path="/Chess" component={Chess} />
                     <Route path="/Demo" component={Demo} />
+                    <Route path="/ErrorBoundary" component={ErrorBoundary} />
                 </Switch>
             </Suspense>
         </Router>

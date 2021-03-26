@@ -362,9 +362,23 @@ class SignUpDialog extends React.Component {
 }
 
 
+//TODO  这个Refs转发不起作用……
+// const FancyButton = React.forwardRef((props, ref) => (
+//   <button ref={ref} className="FancyButton">
+//     {props.children}
+//   </button>
+// ));
+
+// // 你可以直接获取 DOM button 的 ref：
+// const ref = React.createRef();
+// <FancyButton ref={ref}>Click me!</FancyButton>;
+// setTimeout(() => window.refTest = ref,3000)
+
+
+
 ReactDOM.render(
   // <App />,
-  <LoginControl />,
+  // <LoginControl />,
   // <Mailbox unreadMessages={messages} />,
   // <Page />,
   // <ListItem />,
@@ -372,5 +386,6 @@ ReactDOM.render(
   // <Reservation />,
   // <WelcomeDialog />,
   // <SignUpDialog />,
+  // <FancyButton />,
   document.getElementById('root')
 );
