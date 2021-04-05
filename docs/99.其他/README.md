@@ -31,11 +31,18 @@ location: HangZhou
 - [x] 重绘和重排
 - [x] requestAnimationFrame()
 - [ ] 原生fetch
+  - http://www.ruanyifeng.com/blog/2020/12/fetch-tutorial.html
+  - https://blog.logrocket.com/axios-or-fetch-api/
+  - https://www.jianshu.com/p/7762515f8d1a
+  - https://blog.csdn.net/qq_36407875/article/details/84642060?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&dist_request_id=1328602.31300.16150367198770407&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control
 - [x] 垂直居中的实现方法
 - [ ] call apply bind
 - [ ] 最有成就感的一件事
 - [ ] 两个树比较的时间复杂度
 - [x] 前端性能优化  
+- [ ] CDN
+- [ ] https
+- [ ] 防抖节流的实现
 - [ ] TransForm 
   - https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform-function#matrix
 - [ ] Flex弹性布局
