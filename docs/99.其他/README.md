@@ -36,14 +36,14 @@ location: HangZhou
   - https://www.jianshu.com/p/7762515f8d1a
   - https://blog.csdn.net/qq_36407875/article/details/84642060?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&dist_request_id=1328602.31300.16150367198770407&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control
 - [x] 垂直居中的实现方法
-- [ ] call apply bind
+- [x] call apply bind
 - [ ] 最有成就感的一件事
 - [ ] 两个树比较的时间复杂度
 - [x] 前端性能优化  
 - [ ] CDN
 - [ ] https
 - [ ] 防抖节流的实现
-- [ ] TransForm 
+- [x] TransForm 
   - https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform-function#matrix
 - [ ] Flex弹性布局
   - https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#flexbox_%E7%9A%84%E4%B8%A4%E6%A0%B9%E8%BD%B4%E7%BA%BF
@@ -51,6 +51,7 @@ location: HangZhou
   - https://developer.mozilla.org/zh-CN/docs/Web/CSS/grid-template
   - http://www.ruanyifeng.com/blog/2020/08/five-css-layouts-in-one-line.html
 - [ ] 闭包
+  - [ ] https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/A_re-introduction_to_JavaScript
 - [ ] vue
   1. Vue 响应式原理
   2. computed 的实现原理

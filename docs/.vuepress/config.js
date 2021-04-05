@@ -34,6 +34,10 @@ module.exports = {
     //     description: 'A simple and beautiful vuepress Blog & Doc theme.'
     //   }
     // },
+    alias: {
+        'styles': path.resolve(__dirname, './styles'),
+        // "@OIS": path.resolve(__dirname, "./OisComponents"),
+    },
     markdown: {
         lineNumbers: true,
     },
