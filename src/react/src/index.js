@@ -11,6 +11,7 @@ const RouterHome = function home() {
         <li><a href='/errorBoundary'>errorBoundary</a></li>
         <li><a href='/Fragments'>Fragments</a></li>
         <li><a href='/ColorPicker'>ColorPicker</a></li>
+        <li><a href='/Redux'>Redux</a></li>
     </ul>)
 }
 //一般情况，会打包到这个文件中
@@ -28,6 +29,7 @@ const Demo = lazy(() => import('./demo'));
 const ErrorBoundary = lazy(() => import('./errorBoundary'));
 const Fragments = lazy(() => import('./Fragments'));
 const ColorPicker = lazy(() => import('./ColorPicker'));
+const Redux = lazy(() => import('./Redux/index'));
 
 
 
@@ -43,6 +45,7 @@ const App = () => (
                     <Route path="/ErrorBoundary" component={ErrorBoundary} />
                     <Route path="/Fragments" component={Fragments} />
                     <Route path="/ColorPicker" component={ColorPicker} />
+                    <Route path="/Redux" component={Redux} />
                 </Switch>
             </Suspense>
         </Router>
