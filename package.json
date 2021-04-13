@@ -23,5 +23,7 @@
     "vuepress-plugin-sitemap": "2.3.0",
     "vuepress-theme-reco": "^1.5.7"
   },
-  "dependencies": {}
+  "dependencies": {
+    "redux-logger": "^3.0.6"
+  }
 }
