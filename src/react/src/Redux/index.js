@@ -9,6 +9,8 @@ import logger from "redux-logger";
 // 1.重复代码太多
 // 2.竞争问题：多次调用时（连续点击），第一次的结果会影响后续结果
 // 3.统一同步异步的代码行为（类似async），component 不用关心这个 action 是异步还是同步的
+// 4.redux强制了 store 必须是一个单例，对服务端渲染不友好
+// 5.从外部引入store，不易于单元测试
 // https://stackoverflow.com/questions/35411423/how-to-dispatch-a-redux-action-with-a-timeout/35415559#35415559
 // https://segmentfault.com/a/1190000037437347
 import thunk from "redux-thunk";
