@@ -35,6 +35,9 @@ const RouterHome = function home() {
       <li>
         <a href="/ReactRedux">ReactRedux</a>
       </li>
+      <li>
+        <a href="/ForWardRef">ForWardRef</a>
+      </li>
     </ul>
   );
 };
@@ -55,6 +58,7 @@ const Fragments = lazy(() => import("./Fragments"));
 const ColorPicker = lazy(() => import("./ColorPicker"));
 const Redux = lazy(() => import("./Redux/index"));
 const ReactRedux = lazy(() => import("./Redux/components/Counter2"));
+const ForWardRef = lazy(() => import("./ForWardRef.tsx"));
 
 const store = createStore(counter2Reducer);
 const App = () => (
@@ -72,6 +76,7 @@ const App = () => (
             <Route path="/ColorPicker" component={ColorPicker} />
             <Route path="/Redux" component={Redux} />
             <Route path="/ReactRedux" component={ReactRedux} />
+            <Route path="/ForWardRef" component={ForWardRef} />
           </Switch>
         </Suspense>
       </Router>

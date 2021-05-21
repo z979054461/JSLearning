@@ -1,4 +1,4 @@
-export default (state = { count: 0, loading: false,data:[] }, action) => {
+const reducer = (state = { count: 0, loading: false,data:[] }, action) => {
   // console.log(state,action);
   switch (action.type) {
     case 'INCREMENT':
@@ -16,3 +16,4 @@ export default (state = { count: 0, loading: false,data:[] }, action) => {
       return { ...state }
   }
 }
+export default reducer;
