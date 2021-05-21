@@ -33,3 +33,6 @@ location: HangZhou
   - `du -sh *`
   - `du -shc *` 显示总大小
   - `du -sh * | sort -rh` 增加排序
+
+## Mac记事本中的命令
+- 添加链接（先添加中文，再选中添加地址）： <kbd>Command</kbd> + <kbd>W</kbd>
