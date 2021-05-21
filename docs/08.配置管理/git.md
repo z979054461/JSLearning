@@ -10,9 +10,11 @@ tags:
 location: HangZhou
 ---
 
-# Heading
-
 [[toc]]
+
+## 参考链接
+
+- [git cherry-pick 教程](http://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html)
 
 ## 常用命令解释
 
@@ -30,6 +32,11 @@ location: HangZhou
 - git push origin --delete [branchname] 删除远程分支
 - git fetch -p 清理本地无效分支（远程已删除）
 - git reset --hard origin/test 指针重置到另一个分支，用于分支覆盖
+- git cherry-pick 转移提交，在目标分支下执行
+  - git cherry-pick feature 转移 feature 分支的最新一次 commit
+  - git cherry-pick `<HashA>` `<HashB>` 转移多个 commit
+  - git cherry-pick A..B commitA 到 commitB，不包括 A
+  - git cherry-pick A^..B commitA 到 commitB，包括 A
 
 ## 将原分支的最新代码合并到当前分支（当前有未提交代码）
 
