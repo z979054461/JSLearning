@@ -37,6 +37,7 @@ location: HangZhou
   - git cherry-pick `<HashA>` `<HashB>` 转移多个 commit
   - git cherry-pick A..B commitA 到 commitB，不包括 A
   - git cherry-pick A^..B commitA 到 commitB，包括 A
+- git clone `<Repo>` `<DestinationDirectory>` clone时重命名文件夹
 
 ## 将原分支的最新代码合并到当前分支（当前有未提交代码）
 
