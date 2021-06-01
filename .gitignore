@@ -4,3 +4,4 @@ src/jest/coverage
 coverage
 src/webpack5/assetMgnt/dist
 test.js
+.history
