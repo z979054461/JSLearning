@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .continer {
+      border: 1px solid blue;
+      padding: 10px;
+      width: 800px;
+      display: grid;
+      /* grid-row-gap: 20px;
+      grid-column-gap: 20px; */
+      row-gap: 20px;
+      column-gap: 10px;
+
+      grid-template-columns: 100px 100px 100px;
+      grid-template-rows: 100px 100px 100px;
+
+      /* grid-template-columns: 33.33% 33.33% 33.33%;
+      grid-template-rows: 33.33% 33.33% 33.33%; */
+
+      /* grid-template-columns: repeat(3, 100px); */
+      /* grid-template-rows: repeat(3,100px); */
+
+      /* grid-template-rows: repeat(2,50px 100px 50px); */
+
+      /* grid-template-columns: repeat(auto-fill, 100px); */
+
+      /* grid-template-columns: 1fr 2fr; */
+
+      /* grid-template-columns: 150px 1fr 2fr; */
+
+      /* grid-template-columns: 1fr 1fr 1fr minmax(220px,1fr); */
+
+      /* grid-template-columns: 70% 30%; */
+
+      /* grid-template-columns: [c1] 100px [c2] auto [c3]100px; */
+
+      /* grid-template-areas: 'a b c'
+        'd e f'
+        'g h i'; */
+      /* grid-template-areas: 'a a a'
+        'b b b'
+        'c c c'; */
+      /* grid-template-areas: 'a . c'
+        'd . f'
+        'g . i'; */
+      /* grid-template-areas: "header header header"
+        "main main sidebar"
+        "footer footer footer"; */
+
+      /* 先行后列 */
+      /* grid-auto-flow: row; */
+      /* 先列后行 */
+      /* grid-auto-flow: column; */
+      /* 先行后列 尽可能填满空格 */
+      /* grid-auto-flow: row dense; */
+      /* 先列后行 尽可能填满空格 */
+      /* grid-auto-flow: column dense; */
+
+      /* start：对齐单元格的起始边缘。
+      end：对齐单元格的结束边缘。
+      center：单元格内部居中。
+      stretch：拉伸，占满单元格的整个宽度（默认值）。 */
+      /* 单元格内容的水平位置（左中右） */
+      /* justify-items: start; */
+
+      /* 单元格内容的垂直位置（上中下） */
+      /* align-items: center; */
+
+      /* align-items 和 justify-items 的合并简写形式 */
+      /* place-items: end start; */
+
+      /* start | end | center | stretch | space-around | space-between | space-evenly */
+      /* 整个内容区域在容器里面的水平位置（左中右） */
+      /* justify-content: space-around; */
+
+      /* 整个内容区域在容器里面的水垂直位置（上中下） */
+      /* align-content: space-between; */
+
+      /* align-content 和 justify-content 的合并简写 */
+      /* place-content: space-around space-evenly; */
+
+      /* grid-auto-columns属性和grid-auto-rows属性用来设置，浏览器自动创建的多余网格的列宽和行高 */
+      /* grid-auto-rows: 50px; */
+    }
+
+    .continer .item {
+      font-size: 2em;
+      text-align: center;
+      border: 1px solid #e5e4e9;
+    }
+
+    .item-1 {
+      background-color: #ef342a;
+      /* grid-column-start: 2;
+      grid-column-end: 4;
+      grid-row-start: 2;
+      grid-row-end:4; 
+      /* 左边框距离右边框跨越2个网格 */
+      /* grid-column-start: span 2;
+      grid-row-start: span 2; */
+
+      /* 合并简写形式 */
+      /* grid-column: <start-line> / <end-line>;
+      grid-row: <start-line> / <end-line>; */
+
+      /* grid-area指定放置的区域 */
+      /* grid-area: f; */
+      /* grid-area 作为合并简写，分别指定上左下右四个边框位置 */
+      /* grid-area: <row-start> / <column-start> / <row-end> / <column-end>; */
+      /* grid-area: 1 / 1 / 3 / 3; */
+
+      /* justify-self align-self place-self 与对应的items属性一致，只作用于单个项目 */
+      /* justify-self: start; */
+    }
+
+    .item-2 {
+      background-color: #f68f26;
+      /* grid-column: 1 / 3; */
+      /* grid-row: 1 / 2; */
+    }
+
+    .item-3 {
+      background-color: #4ba946;
+    }
+
+    .item-4 {
+      background-color: #0376c2;
+    }
+
+    .item-5 {
+      background-color: #c077af;
+    }
+
+    .item-6 {
+      background-color: #f8d29d;
+    }
+
+    .item-7 {
+      background-color: #b5a87f;
+    }
+
+    .item-8 {
+      background-color: #d0e4a9;
+      /* grid-row-start: 4;
+      grid-column-start: 2; */
+    }
+
+    .item-9 {
+      background-color: #4dc7ec;
+      /* grid-row-start: 5;
+      grid-column-start: 3; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="continer">
+    <div class="item item-1">1</div>
+    <div class="item item-2">2</div>
+    <div class="item item-3">3</div>
+    <div class="item item-4">4</div>
+    <div class="item item-5">5</div>
+    <div class="item item-6">6</div>
+    <div class="item item-7">7</div>
+    <div class="item item-8">8</div>
+    <div class="item item-9">9</div>
+  </div>
+</body>
+
+</html>
