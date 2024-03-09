@@ -52,3 +52,15 @@ location: HangZhou
 3. git rebase origin/XXX（原分支）
 4. git push origin XXX（当前分支） -f
 5. git stash pop
+
+## 问题记录
+### git push 报错：client_loop: send disconnect: Connection reset by peers
+```shell
+client_loop: send disconnect: Connection reset by peers
+fatal: sha1 file '<stdout>' write error: Broken pipeB/s
+fatal: the remote end hung up unexpectedly
+fatal: the remote end hung up unexpectedly
+```
+http.postBuffer默认上限为1M，将上限改大就行
+`git config --global http.postBuffer 157286400`
+用`git config –list `查看是否生效。
