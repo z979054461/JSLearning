@@ -5,12 +5,15 @@ module.exports = {
     //指定 vuepress build 的输出目录。如果传入的是相对路径，则会基于 process.cwd() 进行解析
     // dest: '.vuepress/dist',
     // base: '/JSLearning/',
-    title:'、夕月的博客',
+    title: '、夕月的博客',
     head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }],
         ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
         ['meta', { name: 'author', content: 'reco_luan' }],
-        ['meta', { name: 'keywords', content: 'vuepress,reco,reco_luan,vuepress-reco,vuepress-theme-reco,theme,blog,主题' }],
+        [
+            'meta',
+            { name: 'keywords', content: 'vuepress,reco,reco_luan,vuepress-reco,vuepress-theme-reco,theme,blog,主题' },
+        ],
         ['link', { rel: 'manifest', href: '/manifest.json' }],
         ['meta', { name: 'theme-color', content: '#42b983' }],
         ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
@@ -35,7 +38,7 @@ module.exports = {
     //   }
     // },
     alias: {
-        'styles': path.resolve(__dirname, './styles'),
+        styles: path.resolve(__dirname, './styles'),
         // "@OIS": path.resolve(__dirname, "./OisComponents"),
     },
     markdown: {
@@ -47,10 +50,10 @@ module.exports = {
             {
                 serviceWorker: true,
                 updatePopup: {
-                    message: "发现新内容可用",
-                    buttonText: "刷新"
-                }
-            }
+                    message: '发现新内容可用',
+                    buttonText: '刷新',
+                },
+            },
         ],
         [
             '@vuepress/plugin-register-components',
@@ -58,42 +61,42 @@ module.exports = {
                 components: [
                     {
                         name: 'reco-home-page-one',
-                        path: path.resolve(__dirname, './components/HomePageOne.vue')
-                    }
+                        path: path.resolve(__dirname, './components/HomePageOne.vue'),
+                    },
                 ],
-                componentsDir: path.resolve(__dirname, './demo')
-            }
+                componentsDir: path.resolve(__dirname, './demo'),
+            },
         ],
         '@vuepress-reco/extract-code',
         [
             'sitemap',
             {
-                hostname: 'https://www.yuetianxiang.com'
-            }
+                hostname: 'https://www.yuetianxiang.com',
+                dateFormatter: lastUpdated => {
+                    return new Date(lastUpdated.replace(/[上|下]午/g, '')).toISOString()
+                },
+            },
         ],
         [
             '@vuepress-reco/rss',
             {
                 site_url: 'https://www.yuetianxiang.com',
-                copyright: ''
-            }
+                copyright: '',
+            },
         ],
         'permalink-pinyin',
-        [
-            'autobar',
-            { 'pinyinNav': true }
-        ],
+        ['autobar', { pinyinNav: true }],
         'rpurl',
         [
-            "dynamic-title",
+            'dynamic-title',
             {
-                showIcon: "/favicon.ico",
-                showText: "(/≧▽≦/)咦！又好了！",
-                hideIcon: "/failure.ico",
-                hideText: "(●—●)喔哟，崩溃啦！",
-                recoverTime: 2000
-            }
+                showIcon: '/favicon.ico',
+                showText: '(/≧▽≦/)咦！又好了！',
+                hideIcon: '/failure.ico',
+                hideText: '(●—●)喔哟，崩溃啦！',
+                recoverTime: 2000,
+            },
         ],
         'vuepress-plugin-mermaidjs',
-    ]
-}  
+    ],
+}
