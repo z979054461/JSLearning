@@ -1,3 +1,7 @@
+/**
+ * @deprecated 已弃用，使用插件自动生成
+ */
+
 module.exports = {
   'zh': Object.assign({}, {
     '/02.js/': [

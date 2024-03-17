@@ -1,5 +1,7 @@
-const sidebar = require('./sidebar.js')
+const getConfig = require('vuepress-bar')
 const locales = require('./locales.js')
+
+const { nav, sidebar } = getConfig(`${process.cwd()}/docs`, { pinyinNav: true }) // Use default location of `.vuepress`: `${__dirname}/..`
 
 module.exports = {
   type: 'HomePageOne',
@@ -9,7 +11,8 @@ module.exports = {
   searchMaxSuggestions: 10,
   locales,
   // 自动形成侧边导航
-  // sidebar: 'auto',//这里的sidebar会被插件覆盖，需要每个md文件中开启
+  sidebar,
+  nav,
   // 最后更新时间
   lastUpdated: 'Last Updated', // string | boolean
   // 作者
@@ -21,7 +24,7 @@ module.exports = {
   startYear: '2020',
   algolia: {
     apiKey: '97357e58cac743c6de62036cb152f18b',
-    indexName: 'vuepress-theme-reco'
+    indexName: 'vuepress-theme-reco',
     // inputSelector: '### REPLACE ME ####',
     // algoliaOptions: { 'facetFilters': ["lang:$LANG"] },
     // debug: false // Set debug to true if you want to inspect the dropdown
@@ -32,9 +35,9 @@ module.exports = {
     appKey: 'dXOH7cT8Wmm045cqzcC4PfkY',
     placeholder: '填写邮箱可以收到回复提醒哦！',
     verify: true, // 验证码服务
-    notify: true, // 
+    notify: true, //
     recordIP: true,
-    showComment: true
+    showComment: true,
   },
   // displayAllHeaders: true, // 默认值：false  相当于全部展开
   // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
@@ -46,5 +49,5 @@ module.exports = {
   // // 默认是 false, 设置为 true 来启用
   editLinks: true,
   mode: 'light',
-  codeTheme: 'tomorrow'
+  codeTheme: 'tomorrow',
 }
