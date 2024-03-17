@@ -1,7 +1,8 @@
 /*
  * @lc app=leetcode.cn id=23 lang=javascript
  *
- * [23] 合并K个升序链表
+ * [23] 合并 K 个升序链表
+ * 递归
  */
 
 // @lc code=start
@@ -17,29 +18,27 @@
  * @return {ListNode}
  */
 var mergeKLists = function (lists) {
-    if (lists.length < 1) return null;
-    if (lists.length === 1) return lists[0];
+  if (lists.length === 0) {
+    return null
+  }
 
-    const hair = new ListNode(0, lists.shift());
-    let p = hair, q, r;
-    while (lists.length) {
-        q = lists.shift();
-        while (q) {
-            if (p.next === null) {
-                p.next = q;
-                break;
-            } else if (q.val <= p.next.val) {
-                r = q.next;
-                q.next = p.next;
-                p.next = q;
-                q = r;
-            } else {
-                p = p.next;
-            }
-        }
-        p = hair;
+  return lists.reduce((acc, item) => {
+    const dummy = new ListNode()
+    let p = dummy
+    let l1 = acc
+    let l2 = item
+    while (l1 && l2) {
+      if (l1.val <= l2.val) {
+        p.next = l1
+        l1 = l1.next
+      } else {
+        p.next = l2
+        l2 = l2.next
+      }
+      p = p.next
     }
-    return hair.next
-};
+    p.next = l1 ? l1 : l2
+    return dummy.next
+  })
+}
 // @lc code=end
-
