@@ -36,7 +36,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
       - run: yarn
       - run: yarn build
       - run: echo 'www.yuetianxiang.fun' > ./docs/.vuepress/dist/CNAME
@@ -46,6 +45,7 @@ jobs:
           name: jsLearning
           path: ./docs/.vuepress/dist
   deploy:
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
