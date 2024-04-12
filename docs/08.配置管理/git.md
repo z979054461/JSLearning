@@ -63,4 +63,4 @@ fatal: the remote end hung up unexpectedly
 ```
 http.postBuffer默认上限为1M，将上限改大就行
 `git config --global http.postBuffer 157286400`
-用`git config –list `查看是否生效。
+用`git config --list`查看是否生效。

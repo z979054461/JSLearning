@@ -14,6 +14,8 @@ location: HangZhou
 
 ##  常用命令
 
+- 指定某个npm包的版本为latest
+npm dist-tag add xxx@1.0.0 latest
 
 
 ## 问题记录
