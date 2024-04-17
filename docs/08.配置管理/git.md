@@ -44,6 +44,7 @@ location: HangZhou
 - git symbolic-ref --short HEAD 获取当前分支名
 - git rev-parse HEAD 获取当前commit
 - git rev-parse --short HEAD  获取当前分支名
+- git log -x 查看最近x条提交记录
 
 ## 将原分支的最新代码合并到当前分支（当前有未提交代码）
 
@@ -52,6 +53,10 @@ location: HangZhou
 3. git rebase origin/XXX（原分支）
 4. git push origin XXX（当前分支） -f
 5. git stash pop
+
+## 提取指定commit的commitMessage
+1. git log -1 --pretty=format:%B COMMIT_ID
+2. git show --pretty=format:%B -s COMMIT_ID
 
 ## 问题记录
 ### git push 报错：client_loop: send disconnect: Connection reset by peers
