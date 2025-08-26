@@ -5,3 +5,4 @@ coverage
 src/webpack5/assetMgnt/dist
 test.js
 .history
+.DS_Store
